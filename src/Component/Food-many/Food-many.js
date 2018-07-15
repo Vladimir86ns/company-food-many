@@ -9,11 +9,11 @@ const foodMany = () => {
           </div>
 
           <div className="buttons">
-            <a href="#" className="btn first">All</a>
-            <a href="#" className="btn secound">Pizza</a>
-            <a href="#" className="btn">Drinks</a>
-            <a href="#" className="btn">Grill</a>
-            <a href="#" className="btn">Burger</a>
+            <a href="" className="btn first">All</a>
+            <a href="" className="btn secound">Pizza</a>
+            <a href="" className="btn">Drinks</a>
+            <a href="" className="btn">Grill</a>
+            <a href="" className="btn">Burger</a>
           </div>
         </div>
     );
