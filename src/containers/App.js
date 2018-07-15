@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import FoodMany from './Component/Food-many/Food-many';
-import ManyItem from './Component/Many-item/Many-item';
+import FoodMany from '../components/Food-many/Food-many';
+import ManyItem from '../components/Many-item/Many-item';
 import './App.css';
 
 class App extends Component {
