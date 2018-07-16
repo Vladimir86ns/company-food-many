@@ -13,10 +13,19 @@ class App extends Component {
       {id: 4, name: 'Sa sirom', price: 100, category: 'pizza',  picture:"https://s3-ap-southeast-1.amazonaws.com/v3-live.image.oddle.me/product/Hawaiiane0e765.jpg"},
       {id: 5, name: 'Vegeterijanka', price: 250, category: 'pizza',  picture:"https://s3-ap-southeast-1.amazonaws.com/v3-live.image.oddle.me/product/Hawaiiane0e765.jpg"},
       {id: 6, name: 'Specijalitet', price: 300, category: 'pizza',  picture:"https://s3-ap-southeast-1.amazonaws.com/v3-live.image.oddle.me/product/Hawaiiane0e765.jpg"},
-      {id: 7, name: 'Slatka', price: 250, category: 'pizza',  picture:"https://s3-ap-southeast-1.amazonaws.com/v3-live.image.oddle.me/product/Hawaiiane0e765.jpg"},
-      {id: 8, name: 'Extra cheese', price: 700, category: 'pizza',  picture:"https://s3-ap-southeast-1.amazonaws.com/v3-live.image.oddle.me/product/Hawaiiane0e765.jpg"},
-      {id: 9, name: 'Best of house', price: 250, category: 'pizza',  picture:"https://s3-ap-southeast-1.amazonaws.com/v3-live.image.oddle.me/product/Hawaiiane0e765.jpg"},
-      {id: 10, name: 'Sa lubenicom', price: 200, category: 'pizza',  picture:"https://s3-ap-southeast-1.amazonaws.com/v3-live.image.oddle.me/product/Hawaiiane0e765.jpg"},
+      {id: 7, name: 'Burger', price: 250, category: 'burger', picture:"https://s3-ap-southeast-1.amazonaws.com/v3-live.image.oddle.me/product/SignatureBurgersalacartec184f4.jpg"},
+      {id: 8, name: 'Cheese Burger', price: 250, category: 'burger', picture:"https://s3-ap-southeast-1.amazonaws.com/v3-live.image.oddle.me/product/SignatureBurgersalacartec184f4.jpg"},
+      {id: 9, name: 'Big Burger', price: 250, category: 'burger', picture:"https://s3-ap-southeast-1.amazonaws.com/v3-live.image.oddle.me/product/SignatureBurgersalacartec184f4.jpg"},
+      {id: 10, name: 'House Burger', price: 250, category: 'burger', picture:"https://s3-ap-southeast-1.amazonaws.com/v3-live.image.oddle.me/product/SignatureBurgersalacartec184f4.jpg"},
+      {id: 11, name: 'King Burger', price: 250, category: 'burger', picture:"https://s3-ap-southeast-1.amazonaws.com/v3-live.image.oddle.me/product/SignatureBurgersalacartec184f4.jpg"},
+      {id: 12, name: 'Banana Pancake', price: 250, category: 'pancake', picture:"https://bigoven-res.cloudinary.com/image/upload/perfectly-fluffy-pancakes-gf-8188e5.jpg"},
+      {id: 13, name: 'Coko Pancake', price: 250, category: 'pancake', picture:"https://bigoven-res.cloudinary.com/image/upload/perfectly-fluffy-pancakes-gf-8188e5.jpg"},
+      {id: 14, name: 'Vanila Pancake', price: 250, category: 'pancake', picture:"https://bigoven-res.cloudinary.com/image/upload/perfectly-fluffy-pancakes-gf-8188e5.jpg"},
+      {id: 15, name: 'Hum Pancake', price: 250, category: 'pancake', picture:"https://bigoven-res.cloudinary.com/image/upload/perfectly-fluffy-pancakes-gf-8188e5.jpg"},
+      {id: 16, name: 'Cocos Pancake', price: 250, category: 'pancake', picture:"https://bigoven-res.cloudinary.com/image/upload/perfectly-fluffy-pancakes-gf-8188e5.jpg"},
+      {id: 11, name: 'Strawberry', price: 250, category: 'drink', picture:"https://lh3.googleusercontent.com/EknzEtIAKfI2Rcy8mPEVqKBVDfGKA8PB2zIFtODDB1kbZA4VMbZQptRGeYXArbqJA5p4eUjP1Q07aIDghdym"},
+      {id: 11, name: 'Orange', price: 250, category: 'drink', picture:"https://static.pulse.ng/img/incoming/origs6686932/2246361302-w644-h960/Sex-on-the-beach-cocktail.jpg"},
+      {id: 11, name: 'Green', price: 250, category: 'drink', picture:"https://lh6.ggpht.com/7a-SkcaXYVDE850jHOTXRv371pIhwK_EVzDCdfuL1r9vBUt2NjF75zKvCJH1o4haLdBZVGK7ru1LOVuwWCDVQg"},
     ]
   }
 
