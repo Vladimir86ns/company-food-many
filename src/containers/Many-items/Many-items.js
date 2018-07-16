@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import FoodMany from '../components/Food-many/Food-many';
-import ManyItem from '../components/Many-item/Many-item';
-import './App.css';
+import ManyItem from '../../components/Many-item/Many-item';
 
-class App extends Component {
+class ManyItems extends Component {
 
   state = {
     manyItems: [
@@ -23,9 +21,9 @@ class App extends Component {
       {id: 14, name: 'Vanila Pancake', price: 250, category: 'pancake', picture:"https://bigoven-res.cloudinary.com/image/upload/perfectly-fluffy-pancakes-gf-8188e5.jpg"},
       {id: 15, name: 'Hum Pancake', price: 250, category: 'pancake', picture:"https://bigoven-res.cloudinary.com/image/upload/perfectly-fluffy-pancakes-gf-8188e5.jpg"},
       {id: 16, name: 'Cocos Pancake', price: 250, category: 'pancake', picture:"https://bigoven-res.cloudinary.com/image/upload/perfectly-fluffy-pancakes-gf-8188e5.jpg"},
-      {id: 11, name: 'Strawberry', price: 250, category: 'drink', picture:"https://lh3.googleusercontent.com/EknzEtIAKfI2Rcy8mPEVqKBVDfGKA8PB2zIFtODDB1kbZA4VMbZQptRGeYXArbqJA5p4eUjP1Q07aIDghdym"},
-      {id: 11, name: 'Orange', price: 250, category: 'drink', picture:"https://static.pulse.ng/img/incoming/origs6686932/2246361302-w644-h960/Sex-on-the-beach-cocktail.jpg"},
-      {id: 11, name: 'Green', price: 250, category: 'drink', picture:"https://lh6.ggpht.com/7a-SkcaXYVDE850jHOTXRv371pIhwK_EVzDCdfuL1r9vBUt2NjF75zKvCJH1o4haLdBZVGK7ru1LOVuwWCDVQg"},
+      {id: 17, name: 'Strawberry', price: 250, category: 'drink', picture:"https://lh3.googleusercontent.com/EknzEtIAKfI2Rcy8mPEVqKBVDfGKA8PB2zIFtODDB1kbZA4VMbZQptRGeYXArbqJA5p4eUjP1Q07aIDghdym"},
+      {id: 18, name: 'Orange', price: 250, category: 'drink', picture:"https://static.pulse.ng/img/incoming/origs6686932/2246361302-w644-h960/Sex-on-the-beach-cocktail.jpg"},
+      {id: 19, name: 'Green', price: 250, category: 'drink', picture:"https://lh6.ggpht.com/7a-SkcaXYVDE850jHOTXRv371pIhwK_EVzDCdfuL1r9vBUt2NjF75zKvCJH1o4haLdBZVGK7ru1LOVuwWCDVQg"},
     ]
   }
 
@@ -43,11 +41,10 @@ class App extends Component {
 
     return (
       <div>
-        <FoodMany />
         {manyItems}
       </div>
     );
   }
 }
 
-export default App;
+export default ManyItems;

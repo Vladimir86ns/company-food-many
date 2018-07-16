@@ -1,8 +1,9 @@
 import React from 'react';
-import './Food-many.css';
+import './Layout.css';
+import Aux from '../../hoc/Aux';
 
-const foodMany = () => (
-  <div>
+const layout = () => (
+  <Aux>
     <div className="foodMany">
       <h1 className="textMany">FOOD MENU</h1>
     </div>
@@ -14,7 +15,7 @@ const foodMany = () => (
       <a href="" className="btn">Pancake</a>
       <a href="" className="btn">Burger</a>
     </div>
-  </div>
+  </Aux>
 );
 
-export default foodMany;
+export default layout;
