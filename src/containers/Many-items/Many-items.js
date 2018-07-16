@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ManyItem from '../../components/Many-item/Many-item';
+import ManyItem from '../Many-item/Many-item';
 
 class ManyItems extends Component {
 

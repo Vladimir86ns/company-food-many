@@ -1,0 +1,60 @@
+.column {
+  float: left;
+  width: 20%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 350px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.orderBtn {
+  text-align: center;
+  width: 40%;
+  height: 100%;
+  margin-left: 15px;
+  margin-top: 15px;
+  border: 1px solid red;
+  color: red;
+  border-radius: 10px;
+  padding: 5px 28px;
+  font-size: 10px;
+  transition: 0.5s;
+}
+
+.active {
+  background-color: #f2d813;
+  color: white;
+}
+
+.order {
+  margin-top: 55px;
+  background: #abf29d;
+  font-size: 20px;
+  color: white;
+}
+
+.cancel {
+  margin-top: 55px;
+  background: #f78a7e;
+  font-size: 20px;
+  color: white;
+}
