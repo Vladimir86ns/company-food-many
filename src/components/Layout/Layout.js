@@ -2,7 +2,7 @@ import React from 'react';
 import './Layout.css';
 import Aux from '../../hoc/Aux';
 
-const layout = () => (
+const layout = (props) => (
   <Aux>
     <div className="foodMany">
       <h1 className="textMany">FOOD MENU</h1>
@@ -15,6 +15,9 @@ const layout = () => (
       <a href="" className="btn">Pancake</a>
       <a href="" className="btn">Burger</a>
     </div>
+    <main>
+      {props.children}
+    </main>
   </Aux>
 );
 

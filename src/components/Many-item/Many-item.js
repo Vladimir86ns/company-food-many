@@ -1,5 +1,6 @@
 import React from 'react';
 import './Many-item.css';
+import PropTypes from 'prop-types';
 
 const manyItem = (props) => (
   <div className="column">
@@ -12,5 +13,10 @@ const manyItem = (props) => (
     </div>
   </div>
 );
+
+manyItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+}
 
 export default manyItem;
