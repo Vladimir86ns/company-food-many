@@ -5,7 +5,24 @@ import PropTypes from 'prop-types';
 class ManyItem extends Component {
 
   state = {
-    togglePicture: true
+    togglePicture: true,
+    toggleActiveClass: false,
+    pizzaExtras: {
+      kecapBlagi: 'Kecap blagi',
+      kecapLjuti: 'Kecap ljuti',
+      saMajonezom: 'Sa Majonez',
+      saOriginam: 'Sa Origano',
+      tanjaKora: 'Tanja kora',
+      deblaKora: 'Deblja kora',
+    },
+    singleOrder: {
+      kecapBlagi: false,
+      kecapLjuti: false,
+      saMajonezom: false,
+      saOriginam: false,
+      tanjaKora: false,
+      deblaKora: false,
+    }
   }
 
   togglePicture = () => {
@@ -15,15 +32,61 @@ class ManyItem extends Component {
     });
   };
 
+  toggleActiveClass = (type) => {
+    switch (type) {
+      case 'kecapBlagi':
+        this.updateSingleOrder(type);
+        break;
+      case 'kecapLjuti':
+        this.updateSingleOrder(type);
+        break;
+      case 'saMajonezom':
+        this.updateSingleOrder(type);
+        break;
+      case 'saOriginam':
+        this.updateSingleOrder(type);
+        break;
+      case 'tanjaKora':
+        this.updateSingleOrder(type);
+        break;
+      case 'deblaKora':
+        this.updateSingleOrder(type);
+      break;
+      }
+  };
+
+  updateSingleOrder = (type) => {
+    const oldValue = this.state.singleOrder[type];
+    const updatedOrder = {
+      ...this.state.singleOrder
+    }
+    updatedOrder[type] = !oldValue;
+
+    this.setState({
+      singleOrder: updatedOrder
+    })
+  }
+
   render() {
+
     let imageOrButtons = (
       <div>
-        <button className="orderBtn">Kecap blagi</button>
-        <button className="orderBtn">Kecap ljuti</button>
-        <button className="orderBtn">Sa Majonez</button>
-        <button className="orderBtn">Sa Origano</button>
-        <button className="orderBtn">Tanja kora</button>
-        <button className="orderBtn">Deblja kora</button>
+        {
+          Object.keys(this.state.pizzaExtras).map((key, index) => {
+            let type = this.state.pizzaExtras[key];
+            let buttonClass = 'orderBtn';
+
+            if (this.state.singleOrder[key]) {
+              buttonClass = 'orderBtn active';
+            }
+
+            return <button
+              key={index}
+              onClick={() => this.toggleActiveClass(key)}
+              className={buttonClass}
+              >{type}</button>
+          })
+        }
         <button className="order orderBtn">Naruci</button>
         <button onClick={this.togglePicture} className="cancel orderBtn">Odlozi</button>
       </div>
