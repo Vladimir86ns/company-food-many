@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ManyItem from '../Many-item/Many-item';
-import axios from 'axios';
+import axios from '../../axios';
 
 class ManyItems extends Component {
 
@@ -9,7 +9,7 @@ class ManyItems extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8000/api/company/4/product/get_all').then(
+    axios.get('/company/4/product/get_all').then(
       response => this.setState({apiManyItems: response.data.data})
     );
   }

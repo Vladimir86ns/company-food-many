@@ -13,7 +13,7 @@ class ManyItem extends Component {
       kecapLjuti: 'Kecap ljuti',
       saMajonezom: 'Sa Majonezom',
       saOriginam: 'Sa Origanom',
-      tanjaKora: 'Tanja  koraa',
+      tanjaKora: 'Tanja  Kora ',
       deblaKora: 'Deblja kora',
       m: 'Mala',
       s: 'Srednja',
