@@ -7,13 +7,18 @@ class ManyItem extends Component {
   state = {
     togglePicture: true,
     toggleActiveClass: false,
+    showNameWithImage: true,
     pizzaExtras: {
       kecapBlagi: 'Kecap blagi',
       kecapLjuti: 'Kecap ljuti',
-      saMajonezom: 'Sa Majonez',
-      saOriginam: 'Sa Origano',
-      tanjaKora: 'Tanja kora',
+      saMajonezom: 'Sa Majonezom',
+      saOriginam: 'Sa Origanom',
+      tanjaKora: 'Tanja  koraa',
       deblaKora: 'Deblja kora',
+      m: 'Mala',
+      s: 'Srednja',
+      v: 'Velika',
+      p: 'Porodicna',
     },
     singleOrder: {
       kecapBlagi: false,
@@ -22,13 +27,19 @@ class ManyItem extends Component {
       saOriginam: false,
       tanjaKora: false,
       deblaKora: false,
+      m: false,
+      s: false,
+      v: false,
+      p: false,
     }
   }
 
   togglePicture = () => {
     let old = this.state.togglePicture;
+    let showNameWithImage = this.state.showNameWithImage;
     this.setState({
-      togglePicture: !old
+      togglePicture: !old,
+      showNameWithImage: !showNameWithImage,
     });
   };
 
@@ -51,6 +62,14 @@ class ManyItem extends Component {
         break;
       case 'deblaKora':
         this.updateSingleOrder(type);
+      case 'm':
+        this.updateSingleOrder(type);
+      case 's':
+        this.updateSingleOrder(type);
+      case 'v':
+        this.updateSingleOrder(type);
+      case 'p':
+        this.updateSingleOrder(type);
       break;
       }
   };
@@ -68,6 +87,18 @@ class ManyItem extends Component {
   }
 
   render() {
+    let showNameWithImage = (
+      <div></div>
+    );
+
+    if (this.state.showNameWithImage) {
+      showNameWithImage = (
+        <div className="container">
+          <h2>{this.props.name}</h2>
+          <p>Price: {this.props.price} din</p>
+      </div>
+      );
+    }
 
     let imageOrButtons = (
       <div>
@@ -89,6 +120,9 @@ class ManyItem extends Component {
         }
         <button className="order orderBtn">Naruci</button>
         <button onClick={this.togglePicture} className="cancel orderBtn">Odlozi</button>
+        <div className="container">
+            <h4>Price: {this.props.price} din</h4>
+          </div>
       </div>
     );
 
@@ -100,10 +134,7 @@ class ManyItem extends Component {
       <div className="column">
         <div className="card">
           {imageOrButtons}
-          <div className="container">
-            <h2>{this.props.name}</h2>
-            <p>Price: {this.props.price} din</p>
-          </div>
+          {showNameWithImage}
         </div>
     </div>
     );
