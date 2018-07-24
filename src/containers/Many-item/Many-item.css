@@ -1,7 +1,8 @@
 .column {
   float: left;
-  width: 20%;
+  width: 30%;
   margin-bottom: 16px;
+  margin-left: 2%;
   padding: 0 8px;
 }
 
@@ -36,7 +37,7 @@
   color: red;
   border-radius: 10px;
   padding: 5px 28px;
-  font-size: 10px;
+  font-size: 20px;
   transition: 0.5s;
 }
 
@@ -46,15 +47,19 @@
 }
 
 .order {
-  margin-top: 55px;
+  margin-top: 5%;
   background: #abf29d;
   font-size: 20px;
   color: white;
+  width: 40%;
+  height: 70px;
 }
 
 .cancel {
-  margin-top: 55px;
+  margin-top: 5%;
   background: #f78a7e;
   font-size: 20px;
   color: white;
+  width: 40%;
+  height: 70px;
 }
