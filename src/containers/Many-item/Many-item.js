@@ -62,16 +62,23 @@ class ManyItem extends Component {
         break;
       case 'deblaKora':
         this.updateSingleOrder(type);
+        break;
       case 'm':
         this.updateSingleOrder(type);
+        break;
       case 's':
         this.updateSingleOrder(type);
+        break;
       case 'v':
         this.updateSingleOrder(type);
+        break;
       case 'p':
         this.updateSingleOrder(type);
       break;
+      default:
+       return;
       }
+
   };
 
   updateSingleOrder = (type) => {
@@ -127,7 +134,7 @@ class ManyItem extends Component {
     );
 
     if (this.state.togglePicture) {
-      imageOrButtons = <img onClick={this.togglePicture} src={this.props.picture} style={{width:"100%"}} />;
+      imageOrButtons = <img onClick={this.togglePicture} src={this.props.picture} alt="mozdaNema" style={{width:"100%"}} />;
     }
 
     return (
