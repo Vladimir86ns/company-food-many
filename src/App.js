@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ManyItems from './containers/Many-items/Many-items';
-import SignUp from './containers/SignUp/SignUp';
+import Register from './containers/Register/Register';
 import {  BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './App.css';
 
@@ -11,7 +11,7 @@ class App extends Component {
     <Router>
       <Switch>
         <Route path='/home' component={ManyItems}/>
-        <Route path='/register' component={SignUp}/>
+        <Route path='/register' component={Register}/>
       </Switch>
     </Router>
     );

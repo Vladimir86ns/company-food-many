@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Aux from '../../hoc/Aux';
 import axios from '../../axios';
-import './SignUp.css';
+import './Register.css';
 
-class SignUp extends Component {
+class Register extends Component {
   state = {
     email : '',
     password: '',
@@ -77,4 +77,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default Register;
