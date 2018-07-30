@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
-import Layout from './components/Layout/Layout';
 import ManyItems from './containers/Many-items/Many-items';
-import SignUp from './containers/SignUp/SignUp';
-import Login from './containers/Login/Login';
-import Aux from './hoc/Aux';
+import Register from './containers/Register/Register';
+import {  BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
 
   render() {
     return (
-      <Aux>
-        {/* <Layout>
-          <ManyItems />
-        </Layout> */}
-        <SignUp/>
-      </Aux>
+    <Router>
+      <Switch>
+        <Route path='/home' component={ManyItems}/>
+        <Route path='/register' component={Register}/>
+      </Switch>
+    </Router>
     );
   }
 }
