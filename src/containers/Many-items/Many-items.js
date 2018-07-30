@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ManyItem from '../Many-item/Many-item';
+import Layout from '../../components/Layout/Layout';
 import axios from '../../axios';
 
 class ManyItems extends Component {
@@ -38,7 +39,9 @@ class ManyItems extends Component {
 
     return (
       <div>
-        {allItems}
+        <Layout>
+          {allItems}
+        </Layout>
       </div>
     );
   }
