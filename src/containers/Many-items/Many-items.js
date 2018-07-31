@@ -11,6 +11,11 @@ class ManyItems extends Component {
   }
 
   componentDidMount() {
+
+    if(this.checkUser()) {
+      this.props.history.push("login")
+    };
+
     axios.get('/company/4/product/get_all').then(
       response => this.setState({apiManyItems: response.data.data})
     );
@@ -23,6 +28,12 @@ class ManyItems extends Component {
       localStorage.setItem('user', response.data.first_name)
     }
     );
+  }
+
+  checkUser() {
+    let token = localStorage.getItem('jwt');
+
+    return token === null;
   }
 
   render() {
