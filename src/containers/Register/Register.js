@@ -12,8 +12,7 @@ class Register extends Component {
     errorMessage: ''
   }
 
-  onLogin()
-  {
+  onLogin() {
     this.props.history.push("login")
   }
 
@@ -32,7 +31,6 @@ class Register extends Component {
         this.props.history.push("home") ;
       })
       .catch( error => {
-        console.log(error.response.data.message)
         this.setState({
           errorMessage: error.response.data.message
         })
