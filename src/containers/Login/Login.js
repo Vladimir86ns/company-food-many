@@ -57,8 +57,8 @@ class Login extends Component {
             <input type="password" placeholder="Enter PIN" name="company_pin" onChange={this.onChange.bind(this)}/>
 
             <div className="clearfix">
-              <button type="submit" className="cancelbtn">Login</button>
-              <button type="button" className="signupbtn" onClick={() => this.onSignUp()}>Sign Up</button>
+              <button type="submit" className="signupbtn">Login</button>
+              <button type="button" className="cancelbtn" onClick={() => this.onSignUp()}>Sign Up</button>
             </div>
           </div>
         </form>
