@@ -12,6 +12,11 @@ class Register extends Component {
     errorMessage: ''
   }
 
+  onLogin()
+  {
+    this.props.history.push("login")
+  }
+
   onSubmit(e){
     e.preventDefault();
     const {email, password, pin, repeat_pin} = this.state ;
@@ -48,10 +53,9 @@ class Register extends Component {
       <Aux>
         <form style={{border: "1px solid #ccc"}} method="GET" onSubmit= {this.onSubmit.bind(this)}>
           <div className="container">
-            <h1>Sign Up With New Password</h1>
-            <p>Welcome NAME: example, This account will use some of your employees.</p>
-            <p>It will be good to create with a new password (not the same as Owner).</p>
-            <p>Fill up this form below and enter one more time same email.</p>
+            <h1>Register your company PIN</h1>
+            <p>This account will use some of your employees.</p>
+            <p>It will be good to create your company PIN. And you will be able after this to login with your email and company PIN.</p>
             {errorMessage}
 
             <label><b>Email</b></label>
@@ -67,8 +71,8 @@ class Register extends Component {
             <input type="password" id="pin-repeat" ref="psw-repeat"  placeholder="Repeat Company PIN" name="repeat_pin" onChange={this.onChange.bind(this)} required />
 
             <div className="clearfix">
-              <button type="button" className="cancelbtn">Login</button>
-              <button type="submit" className="signupbtn">Sign Up</button>
+              <button type="button" className="cancelbtn" onClick={() => this.onLogin()}>Login</button>
+              <button type="submit" className="signupbtn">Submit</button>
             </div>
           </div>
         </form>
