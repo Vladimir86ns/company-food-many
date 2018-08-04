@@ -11,10 +11,13 @@ const layout = (props) => (
 
     <div className="buttons">
       <NavLink to="#" className="btn first">All</NavLink>
-      <NavLink to="#" className="btn secound">Pizza</NavLink>
-      <NavLink to="#" className="btn">Drink</NavLink>
-      <NavLink to="#" className="btn">Pancake</NavLink>
-      <NavLink to="#" className="btn">Burger</NavLink>
+      {
+        props.allCategories.map( product => {
+          return (
+            <NavLink key={product.id} to="#" className="btn">{product.name}</NavLink>
+          )
+        })
+      }
     </div>
     <main>
       {props.children}
