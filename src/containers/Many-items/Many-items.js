@@ -18,7 +18,7 @@ class ManyItems extends Component {
 
     let companyId = localStorage.getItem('company_id');
 
-    axios.get('/company/get-product-category/' + companyId)
+    axios.get('/company/get-product-categories/' + companyId)
       .then(
         response => {
           this.setState({companyProducts: response.data});
