@@ -1,5 +1,6 @@
 import React from 'react';
 import './Layout.css';
+import { NavLink } from 'react-router-dom';
 import Aux from '../../hoc/Aux';
 
 const layout = (props) => (
@@ -9,11 +10,11 @@ const layout = (props) => (
     </div>
 
     <div className="buttons">
-      <a href="" className="btn first">All</a>
-      <a href="" className="btn secound">Pizza</a>
-      <a href="" className="btn">Drink</a>
-      <a href="" className="btn">Pancake</a>
-      <a href="" className="btn">Burger</a>
+      <NavLink to="#" className="btn first">All</NavLink>
+      <NavLink to="#" className="btn secound">Pizza</NavLink>
+      <NavLink to="#" className="btn">Drink</NavLink>
+      <NavLink to="#" className="btn">Pancake</NavLink>
+      <NavLink to="#" className="btn">Burger</NavLink>
     </div>
     <main>
       {props.children}
