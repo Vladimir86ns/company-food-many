@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ManyItem from '../Many-item/Many-item';
 import Layout from '../../components/Layout/Layout';
 import axios from '../../axios';
 
@@ -7,7 +6,8 @@ class ManyItems extends Component {
 
   state = {
     apiManyItems: [],
-    user: {}
+    user: {},
+    companyProducts: [],
   }
 
   componentDidMount() {
@@ -16,18 +16,13 @@ class ManyItems extends Component {
       this.props.history.push("login")
     };
 
-    axios.get('/company/4/product/get_all').then(
-      response => this.setState({apiManyItems: response.data.data})
-    );
+    let companyId = localStorage.getItem('company_id');
 
-    axios.post('/sign-up',{
-      email: 'vladimirInvestments@gmail.com',
-      password: 'test123!'
-    }).then( response => {
-      this.setState({user: response.data})
-      localStorage.setItem('user', response.data.first_name)
-    }
-    );
+    axios.get('/company/get-product-category/' + companyId)
+      .then(
+        response => {
+          this.setState({companyProducts: response.data});
+      });
   }
 
   checkUser() {
@@ -37,22 +32,19 @@ class ManyItems extends Component {
   }
 
   render() {
+    let layouts;
 
-    const allItems = this.state.apiManyItems.map( item => {
-      return (
-        <ManyItem
-          name={item.name}
-          price={parseFloat(item.price)}
-          picture={item.picture}
-          key={item.id}/>
-      )
-    });
+    if (this.state.companyProducts) {
+      layouts = (
+        <Layout allCategories={this.state.companyProducts}>
+          {/* {allItems} */}
+        </Layout>
+      );
+    }
 
     return (
       <div>
-        <Layout>
-          {allItems}
-        </Layout>
+        {layouts}
       </div>
     );
   }
