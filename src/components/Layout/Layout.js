@@ -10,11 +10,15 @@ const layout = (props) => (
     </div>
 
     <div className="buttons">
-      <NavLink to="#" className="btn first">All</NavLink>
+      <NavLink to="/Home/All" className="btn first">All</NavLink>
       {
         props.allCategories.map( product => {
           return (
-            <NavLink key={product.id} to="#" className="btn">{product.name}</NavLink>
+            <NavLink
+              key={product.id}
+              to={'/Home/' + product.name}
+              className="btn">{product.name}
+            </NavLink>
           )
         })
       }
