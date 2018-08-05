@@ -1,12 +1,12 @@
 import React from 'react';
 import Aux from '../../hoc/Aux';
 
-const Drink = () => {
+const All = (props) => {
   return (
     <Aux>
-      <h1>Drinks</h1>
+      <h1>All</h1>
     </Aux>
   );
 }
 
-export default Drink;
+export default All;

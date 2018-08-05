@@ -11,10 +11,10 @@ class App extends Component {
     return (
     <Router>
       <Switch>
-        <Route path='/home' component={ManyItems}/>
-        <Route path='/register' component={Register}/>
-        <Route path='/login' component={Login}/>
-        <Redirect from="/" to="login" />
+        <Route path='/Home' component={ManyItems}/>
+        <Route path='/Register' component={Register}/>
+        <Route path='/Login' component={Login}/>
+        <Redirect from="/" to="Login" />
         <Route render={() => <h1>Not found</h1>}/>
       </Switch>
     </Router>
