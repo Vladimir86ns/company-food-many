@@ -21,7 +21,7 @@ const AsyncPizza = asyncComponent(() => {
   return import('../../components/Pizza/Pizza');
 });
 
-class ManyItems extends Component {
+class Home extends Component {
 
   state = {
     apiManyItems: [],
@@ -77,4 +77,4 @@ class ManyItems extends Component {
   }
 }
 
-export default ManyItems;
+export default Home;
