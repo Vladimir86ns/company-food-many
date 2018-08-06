@@ -6,19 +6,19 @@ import Aux from '../../hoc/Aux';
 import { Switch, Route, Redirect} from 'react-router-dom';
 
 const AsyncAll = asyncComponent(() => {
-  return import('../../components/All/All');
+  return import('../../containers/All/All');
 });
 const AsyncBurger = asyncComponent(() => {
-  return import('../../components/Burger/Burger');
+  return import('../../containers/Burger/Burger');
 });
 const AsyncPancake = asyncComponent(() => {
-  return import('../../components/Pancake/Pancake');
+  return import('../../containers/Pancake/Pancake');
 });
 const AsyncDrink = asyncComponent(() => {
-  return import('../../components/Drink/Drink');
+  return import('../../containers/Drink/Drink');
 });
 const AsyncPizza = asyncComponent(() => {
-  return import('../../components/Pizza/Pizza');
+  return import('../../containers/Pizza/Pizza');
 });
 
 class Home extends Component {
