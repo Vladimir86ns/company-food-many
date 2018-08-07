@@ -11,6 +11,19 @@ class Login extends Component {
     errorMessage: ''
   }
 
+  componentDidMount()
+  {
+    if (this.checkUser()) {
+      this.props.history.push("home")
+    };
+  }
+
+  checkUser() {
+    let token = localStorage.getItem('jwt');
+
+    return token != null;
+  }
+
   onSubmit(e) {
     e.preventDefault();
     const { email, company_pin } = this.state;
