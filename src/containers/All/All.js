@@ -14,7 +14,7 @@ class All extends Component {
     axios.get('/company/products/' + companyId)
       .then(
         response => {
-          this.props.fetchData(response.data);
+          this.props.fetchItems(response.data);
       });
   }
 
@@ -42,13 +42,13 @@ class All extends Component {
 
 const mapStateToProps = state => {
   return {
-      all: state.manyItemsReducer.items,
+      all: state.manyItemsReducer.items
   }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-      fetchData: (val) => dispatch({type: actionTypes.GET_ITEMS, val}),
+      fetchItems: (val) => dispatch({type: actionTypes.GET_ITEMS, val}),
   }
 };
 

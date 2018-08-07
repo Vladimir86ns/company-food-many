@@ -9,8 +9,10 @@ class Pizza extends Component {
     let allBurgerItems = (<div></div>);
 
     if (this.props.all.length > 0) {
+      let category = this.props.categories.find(category => category.name === 'Pizza');
+
       allBurgerItems = this.props.all.map(function(item) {
-        if (item.product_categories_id === 3) {
+        if (item.product_categories_id === category.id) {
           return <ManyItem
             key={item.id}
             name={item.name}
@@ -32,6 +34,7 @@ class Pizza extends Component {
 const mapStateToProps = state => {
   return {
       all: state.manyItemsReducer.items,
+      categories: state.categoriesReducer.categories,
   }
 };
 

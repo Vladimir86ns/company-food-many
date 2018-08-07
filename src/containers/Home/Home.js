@@ -3,7 +3,9 @@ import Layout from '../../components/Layout/Layout';
 import asyncComponent from '../../hoc/asyncComponent';
 import axios from '../../axios';
 import Aux from '../../hoc/Aux';
+import { connect } from 'react-redux';
 import { Switch, Route, Redirect} from 'react-router-dom';
+import * as actionTypes from '../../store/product-category/actions';
 
 const AsyncAll = asyncComponent(() => {
   return import('../../containers/All/All');
@@ -40,7 +42,7 @@ class Home extends Component {
     axios.get('/company/get-product-categories/' + companyId)
       .then(
         response => {
-          this.setState({companyProducts: response.data});
+          this.props.fetchCategories(response.data);
       });
   }
 
@@ -52,11 +54,10 @@ class Home extends Component {
 
   render() {
     let layouts;
-
-    if (this.state.companyProducts) {
+    if (this.props.categories.length > 0) {
       layouts = (
         <Aux>
-          <Layout allCategories={this.state.companyProducts} />
+          <Layout allCategories={this.props.categories} />
           <Switch>
             <Route path={this.props.match.url + '/All'} component={AsyncAll}/>
             <Route path={this.props.match.url + '/Drink'} component={AsyncDrink}/>
@@ -77,4 +78,16 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => {
+  return {
+      categories: state.categoriesReducer.categories,
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchCategories: (val) => dispatch({type: actionTypes.GET_PRODUCT_CATEGORIES, val}),
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
