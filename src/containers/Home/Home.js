@@ -60,10 +60,10 @@ class Home extends Component {
           <Layout allCategories={this.props.categories} />
           <Switch>
             <Route path={this.props.match.url + '/All'} component={AsyncAll}/>
-            <Route path={this.props.match.url + '/Drink'} component={AsyncDrink}/>
+            <Route path={this.props.match.url + '/Burger'} component={AsyncDrink}/>
             <Route path={this.props.match.url + '/Pancake'} component={AsyncPancake}/>
             <Route path={this.props.match.url + '/Pizza'} component={AsyncPizza}/>
-            <Route path={this.props.match.url + '/Burger'} component={AsyncBurger}/>
+            <Route path={this.props.match.url + '/Drink'} component={AsyncBurger}/>
             <Redirect from="/Home" to="/Home/All" />
           </Switch>
         </Aux>
