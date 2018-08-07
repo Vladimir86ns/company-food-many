@@ -1,15 +1,44 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Aux from '../../hoc/Aux';
+import ManyItem from '../../containers/Many-item/Many-item';
 
 class Pancake extends Component {
-  state = {  }
+
   render() {
+    let allBurgerItems = (<div></div>);
+
+    if (this.props.all.length > 0) {
+      allBurgerItems = this.props.all.map(function(item) {
+        if (item.product_categories_id === 2) {
+          return <ManyItem
+            key={item.id}
+            name={item.name}
+            picture={item.picture}
+            price={+parseFloat(item.price)}/>
+        }
+        return false;
+      });
+    }
+
     return (
       <Aux>
-        <h1>Pancakes</h1>
+        {allBurgerItems}
       </Aux>
     );
   }
 }
 
-export default Pancake;
+const mapStateToProps = state => {
+  return {
+      all: state.manyItemsReducer.items,
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+      //
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Pancake);
