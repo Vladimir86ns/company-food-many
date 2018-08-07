@@ -5,7 +5,7 @@ import axios from '../../axios';
 import Aux from '../../hoc/Aux';
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect} from 'react-router-dom';
-import * as actionTypes from '../../store/product-category/actions';
+import * as actionTypes from '../../store/categories/actions';
 
 const AsyncAll = asyncComponent(() => {
   return import('../../containers/All/All');

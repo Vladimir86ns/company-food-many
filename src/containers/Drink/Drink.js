@@ -33,7 +33,7 @@ class Drink extends Component {
 
 const mapStateToProps = state => {
   return {
-      all: state.manyItemsReducer.items,
+      all: state.itemsReducer.items,
       categories: state.categoriesReducer.categories,
   }
 };

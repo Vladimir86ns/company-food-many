@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Aux from '../../hoc/Aux';
 import axios from '../../axios';
 import ManyItem from '../../containers/Many-item/Many-item';
-import * as actionTypes from '../../store/many-items/actions';
+import * as actionTypes from '../../store/items/actions';
 
 class All extends Component {
 
@@ -42,7 +42,7 @@ class All extends Component {
 
 const mapStateToProps = state => {
   return {
-      all: state.manyItemsReducer.items
+      all: state.itemsReducer.items
   }
 };
 
