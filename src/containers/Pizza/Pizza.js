@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Aux from '../../hoc/Aux';
+import uniqBy from 'lodash/uniqBy'
 import ManyItem from '../../containers/Many-item/Many-item';
 
 class Pizza extends Component {
@@ -11,7 +12,9 @@ class Pizza extends Component {
     if (this.props.all.length > 0) {
       let category = this.props.categories.find(category => category.name === 'Pizza');
 
-      allBurgerItems = this.props.all.map(function(item) {
+      let uniqPizzaNames = uniqBy(this.props.all, 'name');
+
+      allBurgerItems = uniqPizzaNames.map(function(item) {
         if (item.product_categories_id === category.id) {
           return <ManyItem
             key={item.id}
