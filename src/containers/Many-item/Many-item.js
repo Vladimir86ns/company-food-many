@@ -36,10 +36,6 @@ class ManyItem extends Component {
     }
   }
 
-  itemName = (name) => {
-    console.log(name);
-  }
-
   togglePicture = () => {
     let old = this.state.togglePicture;
     let showNameWithImage = this.state.showNameWithImage;
