@@ -24,11 +24,11 @@ class All extends Component {
     if (this.props.all.length > 0) {
       allItems = this.props.all.map(function(item) {
         return <ManyItem
-            key={item.id}
-            name={item.name}
-            picture={item.picture}
-            price={+parseFloat(item.price)}
-          />
+          item={item}
+          key={item.id}
+          name={item.name}
+          picture={item.picture}
+          price={+parseFloat(item.price)}/>
       });
     }
 

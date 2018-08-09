@@ -2,11 +2,13 @@ import React from 'react';
 import './Layout.css';
 import { NavLink } from 'react-router-dom';
 import Aux from '../../hoc/Aux';
+import { connect } from 'react-redux';
 
 const layout = (props) => (
   <Aux>
     <div className="foodMany">
       <h1 className="textMany">FOOD MENU</h1>
+      <h2>Total price: {props.order.toFixed(2)} din <NavLink to="/Home/Order">See order</NavLink></h2>
     </div>
 
     <div className="buttons">
@@ -29,4 +31,10 @@ const layout = (props) => (
   </Aux>
 );
 
-export default layout;
+const mapStateToProps = state => {
+  return {
+    order: state.orderReducer.totalPrice
+  }
+};
+
+export default connect(mapStateToProps, null)(layout);

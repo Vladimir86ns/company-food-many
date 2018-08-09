@@ -14,6 +14,7 @@ class Pancake extends Component {
       allBurgerItems = this.props.all.map(function(item) {
         if (item.product_categories_id === category.id) {
           return <ManyItem
+            item={item}
             key={item.id}
             name={item.name}
             picture={item.picture}

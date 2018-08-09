@@ -22,6 +22,9 @@ const AsyncDrink = asyncComponent(() => {
 const AsyncPizza = asyncComponent(() => {
   return import('../../containers/Pizza/Pizza');
 });
+const AsyncOrder = asyncComponent(() => {
+  return import('../../containers/Order/Order.js');
+});
 
 class Home extends Component {
 
@@ -64,6 +67,7 @@ class Home extends Component {
             <Route path={this.props.match.url + '/Pancake'} component={AsyncPancake}/>
             <Route path={this.props.match.url + '/Pizza'} component={AsyncPizza}/>
             <Route path={this.props.match.url + '/Drink'} component={AsyncBurger}/>
+            <Route path={this.props.match.url + '/Order'} component={AsyncOrder}/>
             <Redirect from="/Home" to="/Home/All" />
           </Switch>
         </Aux>

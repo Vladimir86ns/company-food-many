@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './Many-item.css';
 import PropTypes from 'prop-types';
+import *  as actionTypes from '../../store/order/actions';
 
 class ManyItem extends Component {
 
@@ -134,7 +136,7 @@ class ManyItem extends Component {
     );
 
     if (this.state.togglePicture) {
-      imageOrButtons = <img onClick={this.togglePicture} src={this.props.picture} alt="mozdaNema" style={{width:"100%"}} />;
+      imageOrButtons = <img onClick={() => this.props.orderItem(this.props.item)} src={this.props.picture} alt="mozdaNema" style={{width:"100%"}} />;
     }
 
     return (
@@ -153,4 +155,10 @@ ManyItem.propTypes = {
   price: PropTypes.number.isRequired,
 }
 
-export default ManyItem;
+const mapDispatchToProps = dispatch => {
+  return {
+    orderItem: (val) => dispatch({type: actionTypes.ADD_ITEM, val}),
+  }
+};
+
+export default connect(null, mapDispatchToProps)(ManyItem);
