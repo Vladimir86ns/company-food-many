@@ -8,7 +8,7 @@ const layout = (props) => (
   <Aux>
     <div className="foodMany">
       <h1 className="textMany">FOOD MENU</h1>
-      <h2>Total price: {props.order} din </h2>
+      <h2>Total price: {props.order.toFixed(2)} din <NavLink to="/Home/Order">See order</NavLink></h2>
     </div>
 
     <div className="buttons">
