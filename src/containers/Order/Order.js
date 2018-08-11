@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Order.css';
 import Aux from '../../hoc/Aux';
+import * as actionTypes from '../../store/order/actions';
 
 class Order extends Component {
 
@@ -13,7 +14,7 @@ class Order extends Component {
           <tr key={index}>
             <td>{item.name}</td>
             <td>{item.price}</td>
-            <td><button style={{ background: 'red'}}>X</button></td>
+            <td><button onClick={() => this.props.removeItem({index: index, price: item.price})} style={{ background: 'red'}}>X</button></td>
           </tr>
         )
       }
@@ -48,7 +49,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-      //
+    removeItem: (val) => dispatch({type: actionTypes.REMOVE_ITEM, val}),
   }
 };
 

@@ -1,4 +1,5 @@
 import * as actionTypes from './actions';
+import remove from 'lodash/remove';
 
 const initialState = {
     totalPrice: 0,
@@ -18,6 +19,17 @@ const reducer = ( state = initialState, action ) => {
         totalPrice: newPrice,
         orderIds: ids
     }
+    case actionTypes.REMOVE_ITEM:
+      newPrice = state.totalPrice - action.val.price;
+      let removeIds = remove(state.orderIds, function( id, index) {
+        return  index !== action.val.index;
+      });
+
+    return {
+      ...state,
+      totalPrice: newPrice,
+      orderIds: removeIds
+  }
     default:
       return state;
   }
