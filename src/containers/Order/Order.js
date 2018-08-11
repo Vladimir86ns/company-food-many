@@ -1,13 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Order.css';
+import axios from '../../axios';
 import Aux from '../../hoc/Aux';
 import * as actionTypes from '../../store/order/actions';
 
 class Order extends Component {
 
+  resetOrder = () => {
+    this.props.resetOrder();
+    this.props.history.push("all");
+  }
+
+  acceptOrder = () => {
+    let companyId = localStorage.getItem('company_id');
+
+    axios.post('company/' + companyId + '/order/', {
+      order_ids: this.props.orderIds
+    })
+    .then(
+      this.resetOrder
+    )
+    .catch();
+  }
+
   render() {
-    let allOrders = this.props.ordersIds.map((id, index) => {
+    let allOrders = this.props.orderIds.map((id, index) => {
       let item = this.props.all.find( item => item.id === id);
       if (item) {
         return (
@@ -33,8 +51,14 @@ class Order extends Component {
             {allOrders}
           </tbody>
         </table>
-        <button style={{ marginLeft: '20%',  width: '40%'}}>Accept</button>
-        <button style={{ background: 'red', marginLeft: '20%',  width: '40%'}}>Cancel</button>
+        <button
+          onClick={this.acceptOrder}
+          style={{ marginLeft: '20%',  width: '40%'}}
+        >Accept</button>
+        <button
+          onClick={this.resetOrder}
+          style={{ background: 'red', marginLeft: '20%',  width: '40%'}}
+        >Cancel</button>
       </Aux>
     );
   }
@@ -43,13 +67,14 @@ class Order extends Component {
 const mapStateToProps = state => {
   return {
       all: state.itemsReducer.items,
-      ordersIds: state.orderReducer.orderIds,
+      orderIds: state.orderReducer.orderIds,
   }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     removeItem: (val) => dispatch({type: actionTypes.REMOVE_ITEM, val}),
+    resetOrder: () => dispatch({type: actionTypes.RESET_ORDER_STORE}),
   }
 };
 

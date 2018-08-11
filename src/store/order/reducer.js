@@ -19,17 +19,28 @@ const reducer = ( state = initialState, action ) => {
         totalPrice: newPrice,
         orderIds: ids
     }
+
     case actionTypes.REMOVE_ITEM:
       newPrice = state.totalPrice - action.val.price;
-      let removeIds = remove(state.orderIds, function( id, index) {
+      ids = remove(state.orderIds, function( id, index) {
         return  index !== action.val.index;
       });
 
     return {
       ...state,
       totalPrice: newPrice,
-      orderIds: removeIds
-  }
+      orderIds: ids
+    }
+
+    case actionTypes.RESET_ORDER_STORE:
+    newPrice = 0;
+    ids = [];
+
+    return {
+      ...state,
+      totalPrice: newPrice,
+      orderIds: ids
+    }
     default:
       return state;
   }
