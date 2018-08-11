@@ -7,6 +7,10 @@ import * as actionTypes from '../../store/order/actions';
 
 class Order extends Component {
 
+  state = {
+    errorMessage: ''
+  }
+
   resetOrder = () => {
     this.props.resetOrder();
     this.props.history.push("all");
@@ -21,10 +25,20 @@ class Order extends Component {
     .then(
       this.resetOrder
     )
-    .catch();
+    .catch(
+      error => {
+        this.setState({errorMessage: error.response.data.message})
+      }
+    );
   }
 
   render() {
+    let errorMessage;
+
+    if (this.state.errorMessage) {
+      errorMessage = (this.state.errorMessage);
+    }
+
     let allOrders = this.props.orderIds.map((id, index) => {
       let item = this.props.all.find( item => item.id === id);
       if (item) {
@@ -41,6 +55,7 @@ class Order extends Component {
 
     return (
       <Aux>
+        <h3 style={{color: 'red'}}>{errorMessage}</h3>
         <table>
           <tbody>
             <tr>
