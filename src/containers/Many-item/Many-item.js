@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Many-item.css';
 import PropTypes from 'prop-types';
+import Aux from '../../hoc/Aux';
 import *  as actionTypes from '../../store/order/actions';
 
 class ManyItem extends Component {
@@ -97,55 +98,24 @@ class ManyItem extends Component {
 
   render() {
     let showNameWithImage = (
-      <div></div>
-    );
-
-    if (this.state.showNameWithImage) {
-      showNameWithImage = (
+      <Aux>
+        <img
+          src={this.props.picture}
+          alt="mozdaNema"
+          style={{width:"100%"}}/>
         <div className="container">
           <h2>{this.props.name}</h2>
           <p>Price: {this.props.price} din</p>
-      </div>
-      );
-    }
-
-    let imageOrButtons = (
-      <div>
-        {
-          Object.keys(this.state.pizzaExtras).map((key, index) => {
-            let type = this.state.pizzaExtras[key];
-            let buttonClass = 'orderBtn';
-
-            if (this.state.singleOrder[key]) {
-              buttonClass = 'orderBtn active';
-            }
-
-            return <button
-              key={index}
-              onClick={() => this.toggleActiveClass(key)}
-              className={buttonClass}
-              >{type}</button>
-          })
-        }
-        <button className="order orderBtn">Naruci</button>
-        <button onClick={this.togglePicture} className="cancel orderBtn">Odlozi</button>
-        <div className="container">
-            <h4>Price: {this.props.price} din</h4>
-          </div>
-      </div>
-    );
-
-    if (this.state.togglePicture) {
-      imageOrButtons = <img onClick={() => this.props.orderItem(this.props.item)} src={this.props.picture} alt="mozdaNema" style={{width:"100%"}} />;
-    }
+          <button onClick={() => this.props.orderItem(this.props.item)}>Add</button>
+        </div>
+      </Aux>);
 
     return (
       <div className="column">
         <div className="card">
-          {imageOrButtons}
           {showNameWithImage}
         </div>
-    </div>
+      </div>
     );
   }
 }
@@ -155,10 +125,16 @@ ManyItem.propTypes = {
   price: PropTypes.number.isRequired,
 }
 
+const mapStateToProps = state => {
+  return {
+      orderIds: state.orderReducer.orderIds,
+  }
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     orderItem: (val) => dispatch({type: actionTypes.ADD_ITEM, val}),
   }
 };
 
-export default connect(null, mapDispatchToProps)(ManyItem);
+export default connect(mapStateToProps, mapDispatchToProps)(ManyItem);
