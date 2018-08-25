@@ -9,7 +9,19 @@ import userReducer from './store/user/reducer';
 import orderReducer from './store/order/reducer';
 
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+
+const logger = store => {
+  return next => {
+    return action => {
+      const result = next(action);
+      return result;
+
+    }
+  }
+}
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   itemsReducer,
@@ -18,7 +30,7 @@ const rootReducer = combineReducers({
   orderReducer
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger)));
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
