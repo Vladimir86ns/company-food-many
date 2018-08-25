@@ -5,7 +5,7 @@ import axios from '../../axios';
 import Aux from '../../hoc/Aux';
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect} from 'react-router-dom';
-import * as actionTypes from '../../store/categories/actions';
+import * as actionTypes from '../../store/categories/index';
 
 const AsyncAll = asyncComponent(() => {
   return import('../../containers/All/All');
@@ -90,7 +90,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchCategories: (val) => dispatch({type: actionTypes.GET_PRODUCT_CATEGORIES, val}),
+    fetchCategories: (val) => dispatch(actionTypes.getProductCategories(val)),
   }
 };
 

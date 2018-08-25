@@ -7,6 +7,7 @@ import itemsReducer from './store/items/reducer';
 import categoriesReducer from './store/categories/reducer';
 import userReducer from './store/user/reducer';
 import orderReducer from './store/order/reducer';
+import thunk from 'redux-thunk'
 
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
@@ -30,7 +31,7 @@ const rootReducer = combineReducers({
   orderReducer
 });
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger, thunk)));
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
