@@ -17,7 +17,6 @@ const logger = store => {
     return action => {
       const result = next(action);
       return result;
-
     }
   }
 }
