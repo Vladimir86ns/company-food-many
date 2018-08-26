@@ -16,7 +16,7 @@ class App extends Component {
         <Route path='/Home' component={Home}/>
         <Route path='/Register' component={Register}/>
         <Route path='/Login' component={Login}/>
-        <Route path={'/Checking-orders'} component={CheckingOrders}/>
+        <Route path='/Checking-orders' component={CheckingOrders}/>
         <Redirect from="/" to="Login" />
         <Route render={() => <h1>Not found</h1>}/>
       </Switch>

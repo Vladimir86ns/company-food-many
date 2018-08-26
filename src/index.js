@@ -7,9 +7,12 @@ import itemsReducer from './store/items/reducer';
 import categoriesReducer from './store/categories/reducer';
 import userReducer from './store/user/reducer';
 import orderReducer from './store/order/reducer';
+import thunk from 'redux-thunk'
 
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   itemsReducer,
@@ -18,7 +21,7 @@ const rootReducer = combineReducers({
   orderReducer
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();

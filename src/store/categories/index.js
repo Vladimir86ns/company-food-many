@@ -1,0 +1,3 @@
+export {
+  getProductCategories
+} from './category'
