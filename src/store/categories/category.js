@@ -1,12 +1,17 @@
 import * as actionType from './actionType';
+import axios from '../../axios';
 
-export const getProductCategories = (value) => {
+export const getProductCategories = (companyId) => {
   return dispatch => {
-    dispatch(
-      {
-        type: actionType.GET_PRODUCT_CATEGORIES,
-        val: value
-      }
-    );
+    axios.get('/company/get-product-categories/' + companyId)
+    .then(
+      response => {
+        dispatch(
+          {
+            type: actionType.GET_PRODUCT_CATEGORIES,
+            val: response.data
+          }
+        );
+    });
   };
 }

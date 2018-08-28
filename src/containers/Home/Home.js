@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Layout from '../../components/Layout/Layout';
 import asyncComponent from '../../hoc/asyncComponent';
-import axios from '../../axios';
 import Aux from '../../hoc/Aux';
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect} from 'react-router-dom';
@@ -41,12 +40,7 @@ class Home extends Component {
     };
 
     let companyId = localStorage.getItem('company_id');
-
-    axios.get('/company/get-product-categories/' + companyId)
-      .then(
-        response => {
-          this.props.fetchCategories(response.data);
-      });
+    this.props.initCategories(companyId);
   }
 
   checkUser() {
@@ -56,7 +50,7 @@ class Home extends Component {
   }
 
   render() {
-    let layouts;
+    let layouts = (<h1>Connection failed!</h1>);
     if (this.props.categories.length > 0) {
       layouts = (
         <Aux>
@@ -90,7 +84,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchCategories: (val) => dispatch(actionTypes.getProductCategories(val)),
+    initCategories: (companyId) => dispatch(actionTypes.getProductCategories(companyId)),
   }
 };
 
