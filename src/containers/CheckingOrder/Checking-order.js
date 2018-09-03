@@ -6,7 +6,9 @@ import Aux from '../../hoc/Aux';
 
 class CheckingOrder extends Component {
   state = {
-    allOrders: []
+    allOrders: [],
+    orderDetail: false,
+    finishOrderIndex: []
    }
 
   componentDidMount() {
@@ -34,36 +36,104 @@ class CheckingOrder extends Component {
     window.location.reload()
   }
 
+  orderDetail = (item) => {
+    this.setState({
+      orderDetail: item
+    });
+  }
+
+  finishSingleItem = (index) => {
+    let allIndex = this.state.finishOrderIndex;
+    allIndex.push(index);
+
+    this.setState({
+      finishOrderIndex: allIndex
+    });
+  }
+
   render() {
+
+    let orderDetail = (<div></div>);
+
+    if (this.state.orderDetail) {
+      let items = JSON.parse(this.state.orderDetail.order_items);
+      let allOrderDetails = items.map((item, index) => {
+      let button;
+        if (this.state.finishOrderIndex.includes(index)) {
+          button = (<td><button >Done</button></td>)
+        } else {
+          button = (<td><button style={{backgroundColor: 'red'}} onClick={() => this.finishSingleItem(index)}>Progress</button></td>)
+        }
+
+        return (
+          <tr key={index}>
+          <td>{index + 1}</td>
+          <td>{item[0]}</td>
+          <td>{item[1]}</td>
+          {button}
+        </tr>
+        );
+      })
+
+      orderDetail = (
+        <div>
+          <button onClick={this.refreshPage}>BACK TO ORDERS</button>
+          <table>
+            <tbody>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Check Order</th>
+              </tr>
+              {allOrderDetails}
+            </tbody>
+          </table>
+          <button onClick={this.refreshPage}>CLOSE ORDER</button>
+        </div>
+      );
+    }
+
     let orders = (<tr><td></td></tr>);
     if (this.state.allOrders.length > 0) {
        orders = this.state.allOrders.map((item, index) => {
         let countItem = JSON.parse(item.order_items).length;
           return (
             <tr key={index}>
-              <td>{index}</td>
+              <td>{index + 1}</td>
               <td>{item.created_at}</td>
               <td>{countItem}</td>
-              <td><button>Details</button></td>
+              <td><button onClick={() => this.orderDetail(item)}>Details</button></td>
             </tr>
           )
       });
     }
 
+    let listOrders = (<div></div>);
+
+    if (!this.state.orderDetail) {
+      listOrders = (
+        <div>
+          <button onClick={this.refreshPage}>REFRESH</button>
+          <table>
+            <tbody>
+              <tr>
+                <th>#</th>
+                <th>Order time</th>
+                <th>Sum items</th>
+                <th>Check Order</th>
+              </tr>
+              {orders}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+
     return (
       <Aux>
-        <button onClick={this.refreshPage}>REFRESH</button>
-        <table>
-          <tbody>
-            <tr>
-              <th>#</th>
-              <th>Order time</th>
-              <th>Sum items</th>
-              <th>Check Order</th>
-            </tr>
-            {orders}
-          </tbody>
-        </table>
+        {orderDetail}
+        {listOrders}
       </Aux>
     );
   }
