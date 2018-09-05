@@ -11,6 +11,9 @@ class CheckingOrder extends Component {
     finishOrderIndex: []
    }
 
+  /**
+   * Fetch all orders
+   */
   componentDidMount() {
 
     if(this.checkUser()) {
@@ -26,22 +29,34 @@ class CheckingOrder extends Component {
       });
   }
 
+  /**
+   * Check user is logged
+   */
   checkUser() {
     let token = localStorage.getItem('jwt');
 
     return token === null;
   }
 
+  /**
+   * Refresh the page
+   */
   refreshPage = () => {
     window.location.reload()
   }
 
+  /**
+   * Show order details, all items in order
+   */
   orderDetail = (item) => {
     this.setState({
       orderDetail: item
     });
   }
 
+  /**
+   * Check item which is finish
+   */
   finishSingleItem = (index) => {
     let allIndex = this.state.finishOrderIndex;
     allIndex.push(index);
@@ -53,11 +68,15 @@ class CheckingOrder extends Component {
 
   render() {
 
+    // Initialize single order details
     let orderDetail = (<div></div>);
 
+    // Display order details if is clicked on button
     if (this.state.orderDetail) {
       let items = JSON.parse(this.state.orderDetail.order_items);
       let allOrderDetails = items.map((item, index) => {
+
+      // Toggle button if order is in progress or done
       let button;
         if (this.state.finishOrderIndex.includes(index)) {
           button = (<td><button >Done</button></td>)
@@ -94,6 +113,7 @@ class CheckingOrder extends Component {
       );
     }
 
+    // Check fetching orders, and display if is more then 0.
     let orders = (<tr><td></td></tr>);
     if (this.state.allOrders.length > 0) {
        orders = this.state.allOrders.map((item, index) => {
@@ -109,8 +129,10 @@ class CheckingOrder extends Component {
       });
     }
 
+    // Initialize list of order
     let listOrders = (<div></div>);
 
+    // If order details is empty, show list of all orders
     if (!this.state.orderDetail) {
       listOrders = (
         <div>
