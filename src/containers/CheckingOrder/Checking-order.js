@@ -1,48 +1,55 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from '../../axios';
+import * as actionTypes from './index';
 import './Checking-order.css';
 import Aux from '../../hoc/Aux';
 
+
 class CheckingOrder extends Component {
   state = {
-    allOrders: [],
     orderDetail: false,
-    finishOrderIndex: [],
-    allOrdersDone: false,
+    finishOrderIndex: []
    }
 
+  /**
+   * Fetch all orders
+   */
   componentDidMount() {
-
     if(this.checkUser()) {
       this.props.history.push("login")
     };
 
     let companyId = localStorage.getItem('company_id');
-
-    axios.get('/company/' + companyId + '/get-orders')
-      .then(
-        response => {
-          this.setState({allOrders: response.data})
-      });
+    this.props.initOrders(companyId);
   }
 
+  /**
+   * Check user is logged
+   */
   checkUser() {
     let token = localStorage.getItem('jwt');
-
     return token === null;
   }
 
+  /**
+   * Refresh the page
+   */
   refreshPage = () => {
     window.location.reload()
   }
 
+  /**
+   * Show order details, all items in order
+   */
   orderDetail = (item) => {
     this.setState({
       orderDetail: item
     });
   }
 
+  /**
+   * Check item which is finish
+   */
   finishSingleItem = (index) => {
     let allIndex = this.state.finishOrderIndex;
     allIndex.push(index);
@@ -53,16 +60,20 @@ class CheckingOrder extends Component {
   }
 
   render() {
+    // Initialize single order details
     let orderDetail = (<div></div>);
+
+    // Initialize close button
     let orderButtonClose = (<button style={{backgroundColor : "red"}} >ITEMS ARE NOT FINISHED!</button>);
 
-    // check is order details is set
+    // Display order details if is clicked on button
     if (this.state.orderDetail) {
       let items = JSON.parse(this.state.orderDetail.order_items);
       let allOrderDetails = items.map((item, index) => {
-      let button;
+        // Toggle button if order is in progress or done
+        let button;
 
-      // if order is done display Done button
+        // if order is done display Done button
         if (this.state.finishOrderIndex.includes(index)) {
           button = (<td><button >Done</button></td>)
         } else {
@@ -104,10 +115,10 @@ class CheckingOrder extends Component {
       );
     }
 
+    // Check fetching orders, and display if is more then 0.
     let orders = (<tr><td></td></tr>);
-
-    if (this.state.allOrders.length > 0) {
-       orders = this.state.allOrders.map((item, index) => {
+    if (this.props.allOrders.length > 0) {
+       orders = this.props.allOrders.map((item, index) => {
         let countItem = JSON.parse(item.order_items).length;
           return (
             <tr key={index}>
@@ -120,8 +131,10 @@ class CheckingOrder extends Component {
       });
     }
 
+    // Initialize list of order
     let listOrders = (<div></div>);
 
+    // If order details is empty, show list of all orders
     if (!this.state.orderDetail) {
       listOrders = (
         <div>
@@ -152,13 +165,13 @@ class CheckingOrder extends Component {
 
 const mapStateToProps = state => {
   return {
-    //
+    allOrders: state.checkingOrders.allOrders,
   }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    //
+      initOrders: (companyId) => dispatch(actionTypes.getAllOrders(companyId)),
   }
 };
 
