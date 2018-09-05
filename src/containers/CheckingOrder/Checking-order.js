@@ -8,7 +8,8 @@ class CheckingOrder extends Component {
   state = {
     allOrders: [],
     orderDetail: false,
-    finishOrderIndex: []
+    finishOrderIndex: [],
+    allOrdersDone: false,
    }
 
   /**
@@ -70,6 +71,7 @@ class CheckingOrder extends Component {
 
     // Initialize single order details
     let orderDetail = (<div></div>);
+    let orderButtonClose = (<button style={{backgroundColor : "red"}} >ITEMS ARE NOT FINISHED!</button>);
 
     // Display order details if is clicked on button
     if (this.state.orderDetail) {
@@ -78,6 +80,8 @@ class CheckingOrder extends Component {
 
       // Toggle button if order is in progress or done
       let button;
+
+      // if order is done display Done button
         if (this.state.finishOrderIndex.includes(index)) {
           button = (<td><button >Done</button></td>)
         } else {
@@ -94,6 +98,12 @@ class CheckingOrder extends Component {
         );
       })
 
+      // if all items are done, display close button
+      if (this.state.finishOrderIndex.length === items.length) {
+        orderButtonClose = (<button onClick={this.refreshPage}>CLOSE ORDER</button>);
+      }
+
+      // display all order items
       orderDetail = (
         <div>
           <button onClick={this.refreshPage}>BACK TO ORDERS</button>
@@ -108,13 +118,14 @@ class CheckingOrder extends Component {
               {allOrderDetails}
             </tbody>
           </table>
-          <button onClick={this.refreshPage}>CLOSE ORDER</button>
+          {orderButtonClose}
         </div>
       );
     }
 
     // Check fetching orders, and display if is more then 0.
     let orders = (<tr><td></td></tr>);
+
     if (this.state.allOrders.length > 0) {
        orders = this.state.allOrders.map((item, index) => {
         let countItem = JSON.parse(item.order_items).length;
