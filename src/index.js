@@ -8,6 +8,7 @@ import categoriesReducer from './store/categories/reducer';
 import userReducer from './store/user/reducer';
 import orderReducer from './store/order/reducer';
 import checkingOrders from './containers/CheckingOrder/reducer';
+import closingOrders from './containers/ClosingOrder/reducer';
 import thunk from 'redux-thunk'
 
 import { Provider } from 'react-redux';
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   categoriesReducer,
   userReducer,
   orderReducer,
-  checkingOrders
+  checkingOrders,
+  closingOrders
 });
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));

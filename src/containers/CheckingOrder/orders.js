@@ -19,7 +19,7 @@ export const getAllOrders = (companyId) => {
 export const closeOrder = (itemId) => {
   return dispatch => {
     let companyId = localStorage.getItem('company_id');
-    axios.post('/company/' + companyId + '/order/' + itemId)
+    axios.post('/company/' + companyId + '/order-done/' + itemId)
     .then(
       window.location.reload()
     )
