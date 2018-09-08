@@ -1,3 +1,4 @@
 export {
-  getAllOrders
+  getAllOrders,
+  closeOrder
 } from './orders'
