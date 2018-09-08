@@ -92,7 +92,7 @@ class CheckingOrder extends Component {
 
       // if all items are done, display close button
       if (this.state.finishOrderIndex.length === items.length) {
-        orderButtonClose = (<button onClick={this.refreshPage}>CLOSE ORDER</button>);
+        orderButtonClose = (<button onClick={() => this.props.closeOrder(this.state.orderDetail.id)}>CLOSE ORDER</button>);
       }
 
       // display all order items
@@ -172,6 +172,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
       initOrders: (companyId) => dispatch(actionTypes.getAllOrders(companyId)),
+      closeOrder: (orderId) => dispatch(actionTypes.closeOrder(orderId))
   }
 };
 

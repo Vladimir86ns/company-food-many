@@ -15,3 +15,17 @@ export const getAllOrders = (companyId) => {
     });
   };
 }
+
+export const closeOrder = (itemId) => {
+  return dispatch => {
+    let companyId = localStorage.getItem('company_id');
+    axios.post('/company/' + companyId + '/order/' + itemId)
+    .then(
+      window.location.reload()
+    )
+    .catch( error => {
+        console.log(error.response.data.message)
+      }
+    );
+  };
+}
