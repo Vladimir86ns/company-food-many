@@ -125,7 +125,6 @@ class ClosingOrder extends Component {
           <tr key={index}>
             <td>{index + 1}</td>
             <td>{item[0]}</td>
-            <td>{item[1]}</td>
           </tr>
         );
       })
