@@ -17,14 +17,22 @@ export const getAllDoneOrders = (companyId) => {
 }
 
 export const closeOrder = (orderId) => {
-  return () => {
+  return (dispatch) => {
     let companyId = localStorage.getItem('company_id');
     axios.post('/company/' + companyId + '/order-close/' + orderId)
-      .then(
-        window.location.reload()
+      .then( () => {
+          window.location.reload();
+        }
       )
       .catch( error => {
-          console.log(error.response.data.message)
+          if (error.response.data.status_code === 404) {
+            dispatch(
+              {
+                type: actionType.CLOSE_ORDER_WITH_ERROR,
+                val: error.response.data.message
+              }
+            )
+          }
         }
       );
   };

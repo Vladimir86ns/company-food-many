@@ -10,7 +10,7 @@ class ClosingOrder extends Component {
    }
 
   /**
-   * Fetch all orders
+   * Fetch all orders.
    */
   componentDidMount() {
     if(this.checkUser()) {
@@ -22,7 +22,7 @@ class ClosingOrder extends Component {
   }
 
   /**
-   * Check user is logged
+   * Check user is logged.
    */
   checkUser() {
     let token = localStorage.getItem('jwt');
@@ -30,69 +30,94 @@ class ClosingOrder extends Component {
   }
 
   /**
-   * Show order details, all items in order
+   * Show order details, all items in order.
    */
-  orderDetail = (item) => {
+  orderDetail(item) {
     this.setState({
       orderDetail: item
     });
   }
 
   /**
-   * Refresh the page
+   * Refresh the page.
    */
-  refreshPage = () => {
+  refreshPage() {
     window.location.reload()
   }
 
-  render() {
-    // Check fetching orders, and display if is more then 0.
+  /**
+   * Check has order and display all order which are done.
+   */
+  checkOrders() {
     let orders = (<tr><td></td></tr>);
 
     if (this.props.allDoneOrders.length > 0) {
-        orders = this.props.allDoneOrders.map((item, index) => {
-        let countItem = JSON.parse(item.order_items).length;
+      orders = this.props.allDoneOrders.map((item, index) => {
+      let countItem = JSON.parse(item.order_items).length;
 
-          return (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{item.created_at}</td>
-              <td>{countItem}</td>
-              <td><button onClick={() => this.orderDetail(item)}>DETAILS</button></td>
-              <td><button onClick={() => this.props.closeOrder(item.id)}>CLOSE</button></td>
-            </tr>
-          )
+        return (
+          <tr key={index}>
+            <td>{index + 1}</td>
+            <td>{item.created_at}</td>
+            <td>{countItem}</td>
+            <td><button onClick={() => this.orderDetail(item)}>DETAILS</button></td>
+            <td><button onClick={() => this.props.closeOrder(item.id)}>CLOSE</button></td>
+          </tr>
+        )
       });
     }
 
-    // Initialize list of order
-    let listOrders = (<div></div>);
+    return orders;
+  }
 
-    // If order details is empty, show list of all orders
-    if (!this.state.orderDetail) {
-      listOrders = (
+  /**
+   * Display button to refresh the page, or display error message from response
+   */
+  buttonRefreshOrDisplayErrorMessage() {
+    let buttonRefreshAndCloseError = (<button onClick={this.refreshPage}>REFRESH</button>);
+
+    // on closing order if is error, display message
+    if (this.props.closeOrderError) {
+      buttonRefreshAndCloseError = (
         <div>
-          <button onClick={this.refreshPage}>REFRESH</button>
-          <table>
-            <tbody>
-              <tr>
-                <th>#</th>
-                <th>Order time</th>
-                <th>Sum items</th>
-                <th>Order Details</th>
-                <th>Close Order</th>
-              </tr>
-              {orders}
-            </tbody>
-          </table>
+          <h3 style={{color: 'red'}}>{this.props.closeOrderError}</h3>
+          {buttonRefreshAndCloseError}
         </div>
       );
     }
 
-    // Initialize order details
+    return buttonRefreshAndCloseError;
+  }
+
+  /**
+   * Display list of all orders, if order detail is false.
+   */
+  getListOrders(buttonRefreshAndCloseError, orders) {
+    return (
+      <div>
+        {buttonRefreshAndCloseError}
+        <table>
+          <tbody>
+            <tr>
+              <th>#</th>
+              <th>Order time</th>
+              <th>Sum items</th>
+              <th>Order Details</th>
+              <th>Close Order</th>
+            </tr>
+            {orders}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+
+  /**
+   * Display order detail, if order detail is true.
+   */
+  displayOrderDetail() {
     let orderDetail = (<div></div>);
 
-    // Display order details if is clicked on details
     if (this.state.orderDetail) {
       let items = JSON.parse(this.state.orderDetail.order_items);
       orderDetail = items.map((item, index) => {
@@ -121,6 +146,27 @@ class ClosingOrder extends Component {
       );
     }
 
+    return orderDetail;
+  }
+
+  render() {
+    // Check fetching orders, and display if is more then 0.
+    let orders = this.checkOrders();
+
+    // Initialize list of order.
+    let listOrders = (<div></div>);
+
+    // On closing order if has response error, display message, or just refresh button.
+    let buttonRefreshAndCloseError = this.buttonRefreshOrDisplayErrorMessage();
+
+    // If order details is empty, show list of all orders.
+    if (!this.state.orderDetail) {
+      listOrders = this.getListOrders(buttonRefreshAndCloseError, orders);
+    }
+
+    // Display order details if is clicked on order detail.
+    let orderDetail = this.displayOrderDetail();
+
     return (
       <Aux>
         {listOrders}
@@ -133,6 +179,7 @@ class ClosingOrder extends Component {
 const mapStateToProps = state => {
   return {
     allDoneOrders: state.closingOrders.allDoneOrders,
+    closeOrderError: state.closingOrders.closeOrderError
   }
 };
 
