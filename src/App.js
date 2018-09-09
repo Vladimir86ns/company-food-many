@@ -14,12 +14,12 @@ class App extends Component {
     return (
     <Router>
       <Switch>
-        <Route path='/Home' component={Home}/>
-        <Route path='/Register' component={Register}/>
-        <Route path='/Login' component={Login}/>
-        <Route path='/Checking-orders' component={CheckingOrders}/>
-        <Route path='/Closing-orders' component={ClosingOrder}/>
-        <Redirect from="/" to="Login" />
+        <Route path='/home' component={Home}/>
+        <Route path='/register' component={Register}/>
+        <Route path='/login' component={Login}/>
+        <Route path='/checking-orders' component={CheckingOrders}/>
+        <Route path='/closing-orders' component={ClosingOrder}/>
+        <Redirect from="/" to="login" />
         <Route render={() => <h1>Not found</h1>}/>
       </Switch>
     </Router>
