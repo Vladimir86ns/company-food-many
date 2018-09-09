@@ -15,7 +15,9 @@ export const updateObject = (oldObject, updatedValues) => {
 export const checkUser = () => {
   let token = localStorage.getItem('jwt');
 
-  return token === null;
+  if (token === null) {
+    this.props.history.push("login")
+  };
 }
 
 /**

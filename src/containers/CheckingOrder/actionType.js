@@ -1,2 +1,3 @@
 export const GET_ALL_ORDERS = 'GET_ALL_ORDERS';
 export const CLOSE_ORDER = 'CLOSE_ORDER';
+export const CLOSE_ORDER_WITH_ERROR = 'CLOSE_ORDER_WITH_ERROR';

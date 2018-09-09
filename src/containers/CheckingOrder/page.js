@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { checkUser, getCompanyId } from '../../store/utility';
-import * as actionTypes from './index';
-import './Checking-order.css';
+import * as actionTypes from '.';
+import './style.css';
 import Aux from '../../hoc/Aux';
 
 
@@ -16,10 +16,7 @@ class CheckingOrder extends Component {
    * Fetch all orders
    */
   componentDidMount() {
-    if(checkUser()) {
-      this.props.history.push("login")
-    };
-
+    checkUser();
     let companyId = getCompanyId();
     this.props.initOrders(companyId);
   }
