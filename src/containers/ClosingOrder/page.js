@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actionTypes from './index';
 import Aux from '../../hoc/Aux';
+import { checkUser, getCompanyId } from '../../store/utility';
 
 class ClosingOrder extends Component {
 
@@ -13,20 +14,9 @@ class ClosingOrder extends Component {
    * Fetch all orders.
    */
   componentDidMount() {
-    if(this.checkUser()) {
-      this.props.history.push("login")
-    };
-
-    let companyId = localStorage.getItem('company_id');
+    checkUser();
+    let companyId = getCompanyId();
     this.props.initOrders(companyId);
-  }
-
-  /**
-   * Check user is logged.
-   */
-  checkUser() {
-    let token = localStorage.getItem('jwt');
-    return token === null;
   }
 
   /**
