@@ -28,6 +28,7 @@ class Register extends Component {
     })
       .then( response => {
         localStorage.setItem('jwt', response.data.jwt_token);
+        localStorage.setItem('company_id', response.data.company_id);
         this.props.history.push("home") ;
       })
       .catch( error => {
