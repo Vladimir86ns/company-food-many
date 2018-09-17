@@ -21,6 +21,9 @@ const AsyncDrink = asyncComponent(() => {
 const AsyncPizza = asyncComponent(() => {
   return import('../../containers/Pizza/Pizza');
 });
+const AsyncSandwich = asyncComponent(() => {
+  return import('../../containers/Sandwich/Sandwich.js');
+});
 const AsyncOrder = asyncComponent(() => {
   return import('../../containers/Order/Order.js');
 });
@@ -51,18 +54,20 @@ class Home extends Component {
 
   render() {
     let layouts = (<h1>Connection failed!</h1>);
+    console.log(this.props.match.url);
     if (this.props.categories.length > 0) {
       layouts = (
         <Aux>
           <Layout allCategories={this.props.categories} />
           <Switch>
-            <Route path={this.props.match.url + '/all'} component={AsyncAll}/>
-            <Route path={this.props.match.url + '/burger'} component={AsyncDrink}/>
-            <Route path={this.props.match.url + '/pancake'} component={AsyncPancake}/>
-            <Route path={this.props.match.url + '/pizza'} component={AsyncPizza}/>
-            <Route path={this.props.match.url + '/drink'} component={AsyncBurger}/>
-            <Route path={this.props.match.url + '/order'} component={AsyncOrder}/>
-            <Redirect from="/home" to="/home/all" />
+            <Route path={this.props.match.url + '/All'} component={AsyncAll}/>
+            <Route path={this.props.match.url + '/Burgers'} component={AsyncBurger}/>
+            <Route path={this.props.match.url + '/Pancake'} component={AsyncPancake}/>
+            <Route path={this.props.match.url + '/Pizza'} component={AsyncPizza}/>
+            <Route path={this.props.match.url + '/Drinks'} component={AsyncDrink}/>
+            <Route path={this.props.match.url + '/Sandwich'} component={AsyncSandwich}/>
+            <Route path={this.props.match.url + '/Order'} component={AsyncOrder}/>
+            <Redirect from="/Home" to="/Home/All" />
           </Switch>
         </Aux>
       );

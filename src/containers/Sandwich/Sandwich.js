@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import Aux from '../../hoc/Aux';
 import ManyItem from '../../containers/Many-item/Many-item';
 
-class Drink extends Component {
+class Sandwich extends Component {
 
   render() {
-    let allBurgerItems = (<div></div>);
+    let allSandwichItems = (<div></div>);
 
     if (this.props.all.length > 0) {
-      let category = this.props.categories.find(category => category.name === 'Drinks');
+      let category = this.props.categories.find(category => category.name === 'Sandwich');
 
-      allBurgerItems = this.props.all.map(function(item) {
+      allSandwichItems = this.props.all.map(function(item) {
         if (item.product_categories_id === category.id) {
           return <ManyItem
             item={item}
@@ -26,7 +26,7 @@ class Drink extends Component {
 
     return (
       <Aux>
-        {allBurgerItems}
+        {allSandwichItems}
       </Aux>
     );
   }
@@ -45,4 +45,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Drink);
+export default connect(mapStateToProps, mapDispatchToProps)(Sandwich);
