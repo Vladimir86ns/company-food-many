@@ -7,7 +7,7 @@ class Login extends Component {
 
   state = {
     email: '',
-    company_pin: '',
+    owner_company_pin: '',
     errorMessage: ''
   }
 
@@ -26,11 +26,11 @@ class Login extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const { email, company_pin } = this.state;
+    const { email, owner_company_pin } = this.state;
 
     axios.post('login-company', {
       email,
-      company_pin
+      owner_company_pin
     })
       .then( response => {
         localStorage.setItem('jwt', response.data.jwt_token);
@@ -67,8 +67,8 @@ class Login extends Component {
             <label><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="email" onChange={this.onChange.bind(this)}/>
 
-            <label><b>PIN</b></label>
-            <input type="password" placeholder="Enter PIN" name="company_pin" onChange={this.onChange.bind(this)}/>
+            <label><b>Company Password</b></label>
+            <input type="password" placeholder="Enter Company Password" name="owner_company_pin" onChange={this.onChange.bind(this)}/>
 
             <div className="clearfix">
               <button type="submit" className="signupbtn">Login</button>
