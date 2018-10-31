@@ -4,20 +4,15 @@ import './Many-item.css';
 import PropTypes from 'prop-types';
 import Aux from '../../hoc/Aux';
 import *  as actionTypes from '../../store/order/actions';
-
-import {
-  APP_URL,
-  UPLOAD_COMPANY_PRODUCT_PATH
-} from '../../constants';
+import { getCompanyProductImagePath } from '../../utils';
 
 class ManyItem extends Component {
-
  render() {
     let showNameWithImage = (
       <Aux>
         <img
-          src={APP_URL + UPLOAD_COMPANY_PRODUCT_PATH + '/4/' + this.props.picture}
-          alt="mozdaNema"
+          src={getCompanyProductImagePath() + this.props.picture}
+          alt={this.props.picture}
           style={{height:"200px", width:"200px", marginLeft:"20%"}}/>
         <div className="container">
           <h2>{this.props.name}</h2>
