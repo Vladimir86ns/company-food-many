@@ -54,7 +54,6 @@ class Home extends Component {
 
   render() {
     let layouts = (<h1>Connection failed!</h1>);
-    console.log(this.props.match.url);
     if (this.props.categories.length > 0) {
       layouts = (
         <Aux>

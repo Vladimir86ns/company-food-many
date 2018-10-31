@@ -12,7 +12,7 @@ class Pancake extends Component {
       let category = this.props.categories.find(category => category.name === 'Pancake');
 
       allBurgerItems = this.props.all.map(function(item) {
-        if (item.product_categories_id === category.id) {
+        if (item.product_category_id === category.id) {
           return <ManyItem
             item={item}
             key={item.id}
