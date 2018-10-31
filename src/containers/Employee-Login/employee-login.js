@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Aux from '../../hoc/Aux';
-import './Login.css';
+import './employee-login.css';
 import axios from '../../axios';
 
 class Login extends Component {
 
   state = {
     email: '',
-    owner_company_password: '',
+    owner_company_pin: '',
     errorMessage: ''
   }
 
@@ -26,11 +26,11 @@ class Login extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const { email, owner_company_password } = this.state;
+    const { email, owner_company_pin } = this.state;
 
     axios.post('login-company', {
       email,
-      owner_company_password
+      owner_company_pin
     })
       .then( response => {
         localStorage.setItem('jwt', response.data.jwt_token);
@@ -68,7 +68,7 @@ class Login extends Component {
             <input type="text" placeholder="Enter Email" name="email" onChange={this.onChange.bind(this)}/>
 
             <label><b>Company Password</b></label>
-            <input type="password" placeholder="Enter Company Password" name="owner_company_password" onChange={this.onChange.bind(this)}/>
+            <input type="password" placeholder="Enter Company Password" name="owner_company_pin" onChange={this.onChange.bind(this)}/>
 
             <div className="clearfix">
               <button type="submit" className="signupbtn">Login</button>

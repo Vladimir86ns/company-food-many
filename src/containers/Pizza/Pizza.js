@@ -15,7 +15,7 @@ class Pizza extends Component {
       let uniqPizzaNames = uniqBy(this.props.all, 'name');
 
       allBurgerItems = uniqPizzaNames.map(function(item) {
-        if (item.product_categories_id === category.id) {
+        if (item.product_category_id === category.id) {
           return <ManyItem
             item={item}
             key={item.id}
