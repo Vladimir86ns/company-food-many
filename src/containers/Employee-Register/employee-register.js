@@ -20,7 +20,7 @@ class Register extends Component {
     e.preventDefault();
     const {email, password, employee_password, repeat_employee_password} = this.state ;
 
-    axios.post('/employee/register-company', {
+    axios.post('/employee/register-employee', {
       email,
       password,
       employee_password,
