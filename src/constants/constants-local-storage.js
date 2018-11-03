@@ -1,0 +1,1 @@
+export const COMPANY_ID = localStorage.getItem('company_id');
