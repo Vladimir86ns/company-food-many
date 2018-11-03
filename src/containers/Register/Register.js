@@ -3,6 +3,9 @@ import Aux from '../../hoc/Aux';
 import axios from '../../axios';
 import './Register.css';
 
+import { ROUTE } from '../../constants';
+import { redirectToPage } from '../../utils';
+
 class Register extends Component {
   state = {
     email : '',
@@ -52,22 +55,22 @@ class Register extends Component {
       <Aux>
         <form style={{border: "1px solid #ccc"}} method="GET" onSubmit= {this.onSubmit.bind(this)}>
           <div className="container">
-            <h1>Register your company PIN</h1>
+            <h1>Company Register</h1>
             <p>This account will use some of your employees.</p>
-            <p>It will be good to create your company PIN. And you will be able after this to login with your email and company PIN.</p>
+            <p>It will be good to create your company password. And you will be able after this to login with your email and company password.</p>
             {errorMessage}
 
             <label><b>Email</b></label>
             <input type="text" id="email" ref="email" placeholder="Enter same email as Owner" name="email" onChange={this.onChange.bind(this)} required />
 
             <label><b>Password</b></label>
-            <input type="password" id="psw" ref="psw"  placeholder="Enter Password different then Owner" name="password" onChange={this.onChange.bind(this)} required />
+            <input type="password" id="psw" ref="psw"  placeholder="Enter Password as Owner" name="password" onChange={this.onChange.bind(this)} required />
 
-            <label><b>Company PIN</b></label>
-            <input type="password" id="pin" ref="psw-repeat"  placeholder="Company PIN" name="pin" onChange={this.onChange.bind(this)} required />
+            <label><b>New Company Password</b></label>
+            <input type="password" id="pin" ref="psw-repeat"  placeholder="New Company Password" name="pin" onChange={this.onChange.bind(this)} required />
 
-            <label><b>Repeat Company PIN</b></label>
-            <input type="password" id="pin-repeat" ref="psw-repeat"  placeholder="Repeat Company PIN" name="repeat_pin" onChange={this.onChange.bind(this)} required />
+            <label><b>Repeat Company Password</b></label>
+            <input type="password" id="pin-repeat" ref="psw-repeat"  placeholder="Repeat Company password" name="repeat_pin" onChange={this.onChange.bind(this)} required />
 
             <div className="clearfix">
               <button type="button" className="cancelbtn" onClick={() => this.onLogin()}>Login</button>
@@ -75,6 +78,14 @@ class Register extends Component {
             </div>
           </div>
         </form>
+
+        <div className="container">
+          <div className="clearfix">
+            <h1>Employee Login</h1>
+            <button type="submit" className="signupbtn" onClick={ () => redirectToPage(this.props, ROUTE.EMPLOYEE_LOGIN)}>Login as a Employee</button>
+            <button type="button" className="cancelbtn" onClick={ () => redirectToPage(this.props, ROUTE.EMPLOYEE_REGISTER)}>Sign Up as a Employee</button>
+          </div>
+        </div>
       </Aux>
     );
   }

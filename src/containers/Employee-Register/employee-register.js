@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Aux from '../../hoc/Aux';
 import axios from '../../axios';
 import './employee-register.css';
+import { ROUTE } from '../../constants';
+import { redirectToPage } from '../../utils';
 
 class Register extends Component {
   state = {
@@ -53,7 +55,7 @@ class Register extends Component {
       <Aux>
         <form style={{border: "1px solid #ccc"}} method="GET" onSubmit= {this.onSubmit.bind(this)}>
           <div className="container">
-            <h1>Register your company password for company as employee</h1>
+            <h1>Employee register</h1>
             <p>This account is for employee</p>
             {errorMessage}
 
@@ -63,11 +65,11 @@ class Register extends Component {
             <label><b>Password</b></label>
             <input type="password" id="psw" ref="psw"  placeholder="Enter Password different then Owner" name="password" onChange={this.onChange.bind(this)} required />
 
-            <label><b>Company password</b></label>
-            <input type="password" id="pin" ref="psw-repeat"  placeholder="Company password" name="employee_password" onChange={this.onChange.bind(this)} required />
+            <label><b>New Employee Company password</b></label>
+            <input type="password" id="pin" ref="psw-repeat"  placeholder="Employee Company password" name="employee_password" onChange={this.onChange.bind(this)} required />
 
-            <label><b>Repeat Company password</b></label>
-            <input type="password" id="pin-repeat" ref="psw-repeat"  placeholder="Repeat Company password" name="repeat_employee_password" onChange={this.onChange.bind(this)} required />
+            <label><b>Repeat Employee Company password</b></label>
+            <input type="password" id="pin-repeat" ref="psw-repeat"  placeholder="Repeat Employee Company password" name="repeat_employee_password" onChange={this.onChange.bind(this)} required />
 
             <div className="clearfix">
               <button type="button" className="cancelbtn" onClick={() => this.onLogin()}>Login</button>
@@ -75,6 +77,14 @@ class Register extends Component {
             </div>
           </div>
         </form>
+
+        <div className="container">
+          <div className="clearfix">
+            <h1>Company Login</h1>
+            <button type="submit" className="signupbtn" onClick={ () => redirectToPage(this.props, ROUTE.COMPANY_LOGIN)}>Login as a Company</button>
+            <button type="button" className="cancelbtn" onClick={ () => redirectToPage(this.props, ROUTE.COMPANY_REGISTER)}>Sign Up as a Company</button>
+          </div>
+        </div>
       </Aux>
     );
   }

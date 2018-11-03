@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { ROUTE } from '../../constants';
+import {redirectToPage} from '../../utils';
 import Aux from '../../hoc/Aux';
 import './Login.css';
 import axios from '../../axios';
@@ -33,6 +35,7 @@ class Login extends Component {
       owner_company_password
     })
       .then( response => {
+        console.log('usao u response THEN');
         localStorage.setItem('jwt', response.data.jwt_token);
         localStorage.setItem('company_id', response.data.company_id);
         this.props.history.push("home") ;
@@ -62,7 +65,7 @@ class Login extends Component {
       <Aux>
         <form style={{border: "1px solid #ccc"}} method="GET" onSubmit= {this.onSubmit.bind(this)}>
           <div className="container">
-            <h1>Login</h1>
+            <h1>Company Login</h1>
             <h3 style={{color: 'red'}}>{errorMessage}</h3>
             <label><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="email" onChange={this.onChange.bind(this)}/>
@@ -76,6 +79,14 @@ class Login extends Component {
             </div>
           </div>
         </form>
+
+        <div className="container">
+          <div className="clearfix">
+            <h1>Employee Login</h1>
+            <button type="submit" className="signupbtn" onClick={ () => redirectToPage(this.props, ROUTE.EMPLOYEE_LOGIN)}>Login as a Employee</button>
+            <button type="button" className="cancelbtn" onClick={ () => redirectToPage(this.props, ROUTE.EMPLOYEE_REGISTER)}>Sign Up as a Employee</button>
+          </div>
+        </div>
       </Aux>
      );
   }

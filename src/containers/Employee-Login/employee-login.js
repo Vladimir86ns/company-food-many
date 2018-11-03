@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Aux from '../../hoc/Aux';
 import './employee-login.css';
 import axios from '../../axios';
+import {redirectToPage} from '../../utils';
+import { ROUTE } from './../../constants'
 
 class Login extends Component {
 
@@ -63,7 +65,7 @@ class Login extends Component {
       <Aux>
         <form style={{border: "1px solid #ccc"}} method="GET" onSubmit= {this.onSubmit.bind(this)}>
           <div className="container">
-            <h1>Login</h1>
+            <h1>Employee Login</h1>
             <h3 style={{color: 'red'}}>{errorMessage}</h3>
             <label><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="email" onChange={this.onChange.bind(this)}/>
@@ -77,6 +79,15 @@ class Login extends Component {
             </div>
           </div>
         </form>
+
+        <div className="container">
+          <div className="clearfix">
+            <h1>Company Login</h1>
+            <button type="submit" className="signupbtn" onClick={ () => redirectToPage(this.props, ROUTE.COMPANY_LOGIN)}>Login as a Company</button>
+            <button type="button" className="cancelbtn" onClick={ () => redirectToPage(this.props, ROUTE.COMPANY_REGISTER)}>Sign Up as a Company</button>
+          </div>
+        </div>
+
       </Aux>
      );
   }
