@@ -7,12 +7,7 @@ import *  as actionTypes from '../../store/order/actions';
 import { getCompanyProductImagePath } from '../../utils';
 
 class ManyItem extends Component {
-
-  componentDidMount() {
-    console.log('componentDidMount()');
-  }
-
- render() {
+  render() {
     let showNameWithImage = (
       <Aux>
         <img
