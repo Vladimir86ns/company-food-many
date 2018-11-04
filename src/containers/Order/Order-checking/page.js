@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { checkUser, getCompanyId } from '../../utils';
-import * as actionTypes from '.';
+import { checkUser, getCompanyId } from '../../../utils';
+import * as actionTypes from './index';
 import './style.css';
-import Aux from '../../hoc/Aux';
+import Aux from '../../../hoc/Aux';
 
 
 class CheckingOrder extends Component {
