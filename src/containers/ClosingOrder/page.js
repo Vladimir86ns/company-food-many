@@ -61,7 +61,7 @@ class ClosingOrder extends Component {
   }
 
   /**
-   * Display button to refresh the page, or display error message from response
+   * Item-show-single button to refresh the page, or display error message from response
    */
   buttonRefreshOrDisplayErrorMessage() {
     let buttonRefreshAndCloseError = (<button onClick={this.refreshPage}>REFRESH</button>);
@@ -80,7 +80,7 @@ class ClosingOrder extends Component {
   }
 
   /**
-   * Display list of all orders, if order detail is false.
+   * Item-show-single list of all orders, if order detail is false.
    */
   getListOrders(buttonRefreshAndCloseError, orders) {
     return (
@@ -103,7 +103,7 @@ class ClosingOrder extends Component {
   }
 
   /**
-   * Display order detail, if order detail is true.
+   * Item-show-single order detail, if order detail is true.
    */
   displayOrderDetail() {
     let orderDetail = (<div></div>);
@@ -153,7 +153,7 @@ class ClosingOrder extends Component {
       listOrders = this.getListOrders(buttonRefreshAndCloseError, orders);
     }
 
-    // Display order details if is clicked on order detail.
+    // Item-show-single order details if is clicked on order detail.
     let orderDetail = this.displayOrderDetail();
 
     return (

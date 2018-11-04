@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Aux from '../../../hoc/Aux';
 import uniqBy from 'lodash/uniqBy'
-import ManyItem from '../Display/Display';
+import ManyItem from '../Item-show-single/Item-show-single';
 
 class ItemPizza extends Component {
 

@@ -3,6 +3,7 @@ import Layout from '../../components/Layout/Layout';
 import asyncComponent from '../../hoc/asyncComponent';
 import Aux from '../../hoc/Aux';
 import { connect } from 'react-redux';
+
 import { Switch, Route, Redirect} from 'react-router-dom';
 import * as actionTypes from '../../store/categories/index';
 
@@ -16,7 +17,7 @@ const AsyncPancake = asyncComponent(() => {
   return import('../Item/Item-pancake/Item-pancake');
 });
 const AsyncDrink = asyncComponent(() => {
-  return import('../Item/Display/Display');
+  return import('../Item/Item-drink/Item-drink');
 });
 const AsyncPizza = asyncComponent(() => {
   return import('../Item/Item-pizza/Item-pizza');

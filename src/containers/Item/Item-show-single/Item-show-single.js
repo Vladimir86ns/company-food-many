@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './Display.css';
+import './Item-show-single.css';
 import PropTypes from 'prop-types';
 import Aux from '../../../hoc/Aux';
 import *  as actionTypes from '../../../store/order/actions';
 import { getCompanyProductImagePath } from '../../../utils';
 
-class Display extends Component {
+class ItemShowSingle extends Component {
 
   render() {
     let showNameWithImage = (
@@ -32,7 +32,7 @@ class Display extends Component {
   }
 }
 
-Display.propTypes = {
+ItemShowSingle.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
 }
@@ -50,4 +50,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Display);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemShowSingle);
