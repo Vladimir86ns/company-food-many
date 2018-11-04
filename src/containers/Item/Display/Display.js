@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './Many-item.css';
+import './Display.css';
 import PropTypes from 'prop-types';
-import Aux from '../../hoc/Aux';
-import *  as actionTypes from '../../store/order/actions';
-import { getCompanyProductImagePath } from '../../utils';
+import Aux from '../../../hoc/Aux';
+import *  as actionTypes from '../../../store/order/actions';
+import { getCompanyProductImagePath } from '../../../utils';
 
-class ManyItem extends Component {
+class Display extends Component {
 
   render() {
     let showNameWithImage = (
@@ -32,7 +32,7 @@ class ManyItem extends Component {
   }
 }
 
-ManyItem.propTypes = {
+Display.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
 }
@@ -50,4 +50,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManyItem);
+export default connect(mapStateToProps, mapDispatchToProps)(Display);

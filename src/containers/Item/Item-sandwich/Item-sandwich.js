@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Aux from '../../hoc/Aux';
-import uniqBy from 'lodash/uniqBy'
-import ManyItem from '../../containers/Many-item/Many-item';
+import Aux from '../../../hoc/Aux';
+import ManyItem from '../Display/Display';
 
-class Pizza extends Component {
+class ItemSandwich extends Component {
 
   render() {
-    let allBurgerItems = (<div></div>);
+    let allSandwichItems = (<div></div>);
 
     if (this.props.all.length > 0) {
-      let category = this.props.categories.find(category => category.name === 'Pizza');
+      let category = this.props.categories.find(category => category.name === 'ItemSandwich');
 
-      let uniqPizzaNames = uniqBy(this.props.all, 'name');
-
-      allBurgerItems = uniqPizzaNames.map(function(item) {
+      allSandwichItems = this.props.all.map(function(item) {
         if (item.product_category_id === category.id) {
           return <ManyItem
             item={item}
@@ -29,7 +26,7 @@ class Pizza extends Component {
 
     return (
       <Aux>
-        {allBurgerItems}
+        {allSandwichItems}
       </Aux>
     );
   }
@@ -48,4 +45,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Pizza);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemSandwich);
