@@ -32,7 +32,7 @@ class Login extends Component {
         localStorage.setItem('jwt', response.data.jwt_token);
         localStorage.setItem('company_id', response.data.company_id);
         localStorage.setItem('employee_id', response.data.id);
-        this.props.history.push('checking-orders');
+        redirectToPage(this.props, ROUTE.ORDER_CHOOSE_TYPE);
       })
       .catch( error => {
         this.setState({errorMessage: error.response.data.message})
@@ -65,7 +65,7 @@ class Login extends Component {
 
             <div className="clearfix">
               <button type="submit" className="signupbtn">Login</button>
-              <button type="button" className="cancelbtn" onClick={() => redirectToPage(this.props, ROUTE.EMPLOYEE_REGISTER)}>Sign Up</button>
+              <button type="button" className="cancelbtn" onClick={() => redirectToPage(this.props, ROUTE.REGISTER_EMPLOYEE)}>Sign Up</button>
             </div>
           </div>
         </form>
@@ -73,8 +73,8 @@ class Login extends Component {
         <div className="container">
           <div className="clearfix">
             <h1>Company Login</h1>
-            <button type="submit" className="signupbtn" onClick={ () => redirectToPage(this.props, ROUTE.COMPANY_LOGIN)}>Login as a Company</button>
-            <button type="button" className="cancelbtn" onClick={ () => redirectToPage(this.props, ROUTE.COMPANY_REGISTER)}>Sign Up as a Company</button>
+            <button type="submit" className="signupbtn" onClick={ () => redirectToPage(this.props, ROUTE.LOGIN_COMPANY)}>Login as a Company</button>
+            <button type="button" className="cancelbtn" onClick={ () => redirectToPage(this.props, ROUTE.REGISTER_COMPANY)}>Sign Up as a Company</button>
           </div>
         </div>
 

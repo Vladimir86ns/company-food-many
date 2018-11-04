@@ -4,8 +4,9 @@ import RegisterCompany from './containers/Register/Register-company/company-regi
 import LoginCompany from './containers/Login/Login-company/login-company';
 import RegisterEmployee from './containers/Register/Register-employee/employee-register';
 import LoginEmployee from './containers/Login/Login-employee/login-employee';
-import CheckingOrders from './containers/Order/Order-checking/page';
-import ClosingOrder from './containers/Order/Order-closing/page';
+import OrdersChecking from './containers/Order/Order-checking/page';
+import OrderClosing from './containers/Order/Order-closing/page';
+import OrderChooseType from './containers/Order/Order-choose-type/Order-choose-type';
 
 import {  BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import { ROUTE } from './constants'
@@ -18,13 +19,14 @@ class App extends Component {
     <Router>
       <Switch>
         <Route path={ ROUTE.HOME } component={Home}/>
-        <Route path={ ROUTE.COMPANY_REGISTER } component={RegisterCompany}/>
-        <Route path={ ROUTE.COMPANY_LOGIN } component={LoginCompany}/>
-        <Route path={ ROUTE.EMPLOYEE_REGISTER }  component={RegisterEmployee}/>
-        <Route path={ ROUTE.EMPLOYEE_LOGIN } component={LoginEmployee}/>
-        <Route path={ ROUTE.ORDER_CHECKING } component={CheckingOrders}/>
-        <Route path={ ROUTE.ORDER_CLOSING } component={ClosingOrder}/>
-        <Redirect from="/" to={ ROUTE.COMPANY_LOGIN } />
+        <Route path={ ROUTE.REGISTER_COMPANY } component={RegisterCompany}/>
+        <Route path={ ROUTE.LOGIN_COMPANY } component={LoginCompany}/>
+        <Route path={ ROUTE.REGISTER_EMPLOYEE }  component={RegisterEmployee}/>
+        <Route path={ ROUTE.LOGIN_EMPLOYEE } component={LoginEmployee}/>
+        <Route path={ ROUTE.ORDER_CHECKING } component={OrdersChecking}/>
+        <Route path={ ROUTE.ORDER_CLOSING } component={OrderClosing}/>
+        <Route path={ ROUTE.ORDER_CHOOSE_TYPE } component={OrderChooseType}/>
+        <Redirect from="/" to={ ROUTE.LOGIN_COMPANY } />
         <Route render={() => <h1>Not found</h1>}/>
       </Switch>
     </Router>
