@@ -29,7 +29,7 @@ class CheckingOrder extends Component {
   }
 
   /**
-   * Show order details, all items in order
+   * Show order details, all Item in order
    */
   orderDetail = (item) => {
     this.setState({
@@ -115,7 +115,7 @@ class CheckingOrder extends Component {
       );
     })
 
-    // display all order items
+    // display all order Item
     return this.getListOrderDetailsTable(allOrderDetails, items);
   }
 
@@ -146,11 +146,11 @@ class CheckingOrder extends Component {
   }
 
   /**
-   * If all items are done, display close button, otherwise,
-   * items are not finished.
+   * If all Item are done, display close button, otherwise,
+   * Item are not finished.
    */
   checkCloseButton(items) {
-    // if all items are done, display close button
+    // if all Item are done, display close button
     if (this.state.finishOrderIndex.length === items.length) {
       return (<button onClick={() => this.props.closeOrder(this.state.orderDetail.id)}>CLOSE ORDER</button>);
     }

@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Aux from '../../hoc/Aux';
-import ManyItem from '../../containers/Many-item/Many-item';
+import Aux from '../../../hoc/Aux';
+import ManyItem from '../Display/Display';
 
-class Pancake extends Component {
+class ItemBurger extends Component {
 
   render() {
     let allBurgerItems = (<div></div>);
-
     if (this.props.all.length > 0) {
-      let category = this.props.categories.find(category => category.name === 'Pancake');
+      let category = this.props.categories.find(category => category.name === 'Burgers');
 
       allBurgerItems = this.props.all.map(function(item) {
         if (item.product_category_id === category.id) {
@@ -23,7 +22,6 @@ class Pancake extends Component {
         return false;
       });
     }
-
     return (
       <Aux>
         {allBurgerItems}
@@ -41,8 +39,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-      //
+    //
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Pancake);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemBurger);

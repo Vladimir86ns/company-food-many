@@ -7,22 +7,22 @@ import { Switch, Route, Redirect} from 'react-router-dom';
 import * as actionTypes from '../../store/categories/index';
 
 const AsyncAll = asyncComponent(() => {
-  return import('../../containers/All/All');
+  return import('../Item/All/Item-all');
 });
 const AsyncBurger = asyncComponent(() => {
-  return import('../../containers/Burger/Burger');
+  return import('../Item/Item-burger/Item-burger');
 });
 const AsyncPancake = asyncComponent(() => {
-  return import('../../containers/Pancake/Pancake');
+  return import('../Item/Item-pancake/Item-pancake');
 });
 const AsyncDrink = asyncComponent(() => {
-  return import('../../containers/Drink/Drink');
+  return import('../Item/Display/Display');
 });
 const AsyncPizza = asyncComponent(() => {
-  return import('../../containers/Pizza/Pizza');
+  return import('../Item/Item-pizza/Item-pizza');
 });
 const AsyncSandwich = asyncComponent(() => {
-  return import('../../containers/Sandwich/Sandwich.js');
+  return import('../Item/Item-sandwich/Item-sandwich.js');
 });
 const AsyncOrder = asyncComponent(() => {
   return import('../../containers/Order/Order.js');
@@ -61,10 +61,10 @@ class Home extends Component {
           <Switch>
             <Route path={this.props.match.url + '/All'} component={AsyncAll}/>
             <Route path={this.props.match.url + '/Burgers'} component={AsyncBurger}/>
-            <Route path={this.props.match.url + '/Pancake'} component={AsyncPancake}/>
-            <Route path={this.props.match.url + '/Pizza'} component={AsyncPizza}/>
+            <Route path={this.props.match.url + '/Item-pancake'} component={AsyncPancake}/>
+            <Route path={this.props.match.url + '/Item-pizza'} component={AsyncPizza}/>
             <Route path={this.props.match.url + '/Drinks'} component={AsyncDrink}/>
-            <Route path={this.props.match.url + '/Sandwich'} component={AsyncSandwich}/>
+            <Route path={this.props.match.url + '/Item-sandwich'} component={AsyncSandwich}/>
             <Route path={this.props.match.url + '/Order'} component={AsyncOrder}/>
             <Redirect from="/Home" to="/Home/All" />
           </Switch>

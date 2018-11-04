@@ -20,7 +20,7 @@ class ClosingOrder extends Component {
   }
 
   /**
-   * Show order details, all items in order.
+   * Show order details, all Item in order.
    */
   orderDetail(item) {
     this.setState({

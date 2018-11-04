@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Aux from '../../hoc/Aux';
-import axios from '../../axios';
-import ManyItem from '../../containers/Many-item/Many-item';
-import * as actionTypes from '../../store/items/actions';
+import Aux from '../../../hoc/Aux';
+import axios from '../../../axios';
+import ManyItem from '../Display/Display';
+import * as actionTypes from '../../../store/items/actions';
 
-class All extends Component {
+class ItemAll extends Component {
 
   componentDidMount()
   {
@@ -52,4 +52,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(All);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemAll);
