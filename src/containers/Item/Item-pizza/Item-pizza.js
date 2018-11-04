@@ -10,11 +10,15 @@ class ItemPizza extends Component {
     let allBurgerItems = (<div></div>);
 
     if (this.props.all.length > 0) {
-      let category = this.props.categories.find(category => category.name === 'ItemPizza');
+      console.log(this.props.categories);
+      let category = this.props.categories.find(category => category.name === 'Pizza');
 
       let uniqPizzaNames = uniqBy(this.props.all, 'name');
 
       allBurgerItems = uniqPizzaNames.map(function(item) {
+        console.log('Pizza');
+        console.log(category.id);
+        console.log(item.product_category_id);
         if (item.product_category_id === category.id) {
           return <ManyItem
             item={item}
