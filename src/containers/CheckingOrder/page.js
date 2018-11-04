@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { checkUser, getCompanyId } from '../../store/utility';
+import { checkUser, getCompanyId } from '../../utils';
 import * as actionTypes from '.';
 import './style.css';
 import Aux from '../../hoc/Aux';

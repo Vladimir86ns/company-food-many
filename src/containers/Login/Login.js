@@ -35,7 +35,6 @@ class Login extends Component {
       owner_company_password
     })
       .then( response => {
-        console.log('usao u response THEN');
         localStorage.setItem('jwt', response.data.jwt_token);
         localStorage.setItem('company_id', response.data.company_id);
         this.props.history.push("home") ;

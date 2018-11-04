@@ -7,6 +7,7 @@ import *  as actionTypes from '../../store/order/actions';
 import { getCompanyProductImagePath } from '../../utils';
 
 class ManyItem extends Component {
+
   render() {
     let showNameWithImage = (
       <Aux>
@@ -39,6 +40,7 @@ ManyItem.propTypes = {
 const mapStateToProps = state => {
   return {
       orderIds: state.orderReducer.orderIds,
+      user: state.userReducer.user
   }
 };
 

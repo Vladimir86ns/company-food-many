@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actionTypes from './index';
 import Aux from '../../hoc/Aux';
-import { checkUser, getCompanyId } from '../../store/utility';
+import { checkUser, getCompanyId } from '../../utils';
 
 class ClosingOrder extends Component {
 
