@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Aux from '../../hoc/Aux';
 import axios from '../../axios';
 import './Register.css';
 
+import *  as actionTypes from '../../store/user/actions';
 import { ROUTE } from '../../constants';
 import { redirectToPage } from '../../utils';
 
@@ -33,6 +35,7 @@ class Register extends Component {
         localStorage.setItem('jwt', response.data.jwt_token);
         localStorage.setItem('company_id', response.data.company_id);
         this.props.history.push("home") ;
+        this.props.getUser(response.data);
       })
       .catch( error => {
         this.setState({
@@ -91,4 +94,16 @@ class Register extends Component {
   }
 }
 
-export default Register;
+const mapStateToProps = state => {
+  return {
+      //
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getUser: (user) => dispatch({type: actionTypes.GET_USER, user}),
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

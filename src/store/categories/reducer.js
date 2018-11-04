@@ -1,5 +1,5 @@
 import * as actionTypes from './actionType';
-import {updateObject} from '../utility';
+import {updateObject} from '../store-utils';
 
 const initialState = {
   categories: {}

@@ -1,5 +1,5 @@
 import * as actionTypes from './actions';
-import {updateObject} from '../utility';
+import {updateObject} from '../store-utils';
 
 const initialState = {
   user: {}
@@ -8,7 +8,7 @@ const initialState = {
 const reducer = ( state = initialState, action ) => {
   switch ( action.type ) {
     case actionTypes.GET_USER:
-      return updateObject(state, {user: action.val});
+      return updateObject(state, {user: action.user});
     default:
       return state;
   }
