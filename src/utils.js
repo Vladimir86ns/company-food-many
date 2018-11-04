@@ -2,11 +2,7 @@
  * Return boolean, if user token is valid.
  */
 export function checkUser() {
-  let token = localStorage.getItem('jwt');
-
-  if (token === null) {
-    this.props.history.push("login")
-  };
+  return localStorage.getItem('jwt');
 }
 
 /**
