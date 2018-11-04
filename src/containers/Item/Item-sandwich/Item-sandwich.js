@@ -9,7 +9,7 @@ class ItemSandwich extends Component {
     let allSandwichItems = (<div></div>);
 
     if (this.props.all.length > 0) {
-      let category = this.props.categories.find(category => category.name === 'ItemSandwich');
+      let category = this.props.categories.find(category => category.name === 'Sandwich');
 
       allSandwichItems = this.props.all.map(function(item) {
         if (item.product_category_id === category.id) {

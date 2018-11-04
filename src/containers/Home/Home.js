@@ -62,11 +62,11 @@ class Home extends Component {
           <Switch>
             <Route path={this.props.match.url + '/All'} component={AsyncAll}/>
             <Route path={this.props.match.url + '/Burgers'} component={AsyncBurger}/>
-            <Route path={this.props.match.url + '/Item-pancake'} component={AsyncPancake}/>
-            <Route path={this.props.match.url + '/Item-pizza'} component={AsyncPizza}/>
+            <Route path={this.props.match.url + '/Pancake'} component={AsyncPancake}/>
+            <Route path={this.props.match.url + '/Pizza'} component={AsyncPizza}/>
             <Route path={this.props.match.url + '/Drinks'} component={AsyncDrink}/>
-            <Route path={this.props.match.url + '/Item-sandwich'} component={AsyncSandwich}/>
-            <Route path={this.props.match.url + '/Order'} component={AsyncOrderShow}/>
+            <Route path={this.props.match.url + '/Sandwich'} component={AsyncSandwich}/>
+            <Route path={this.props.match.url + '/Order-show'} component={AsyncOrderShow}/>
             <Redirect from="/Home" to="/Home/All" />
           </Switch>
         </Aux>

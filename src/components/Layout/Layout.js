@@ -8,14 +8,13 @@ const layout = (props) => (
   <Aux>
     <div className="foodMany">
       <h1 className="textMany">FOOD MENU</h1>
-      <h2>Total price: {props.order.toFixed(2)} din <NavLink to="/Home/Order">See order</NavLink></h2>
+      <h2>Total price: {props.order.toFixed(2)} din <NavLink to="/Home/Order-show">See order</NavLink></h2>
     </div>
 
     <div className="buttons">
       <NavLink to="/Home/All" className="btn first">All</NavLink>
       {
         props.allCategories.map( product => {
-          console.log('product name', product.name);
           return (
             <NavLink
               key={product.id}

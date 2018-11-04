@@ -10,7 +10,7 @@ class ItemPizza extends Component {
     let allBurgerItems = (<div></div>);
 
     if (this.props.all.length > 0) {
-      let category = this.props.categories.find(category => category.name === 'ItemPizza');
+      let category = this.props.categories.find(category => category.name === 'Pizza');
 
       let uniqPizzaNames = uniqBy(this.props.all, 'name');
 
