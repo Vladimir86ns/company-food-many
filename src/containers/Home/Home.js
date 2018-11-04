@@ -8,7 +8,7 @@ import { Switch, Route, Redirect} from 'react-router-dom';
 import * as actionTypes from '../../store/categories/index';
 
 const AsyncAll = asyncComponent(() => {
-  return import('../Item/All/Item-all');
+  return import('../Item/Item-all/Item-all');
 });
 const AsyncBurger = asyncComponent(() => {
   return import('../Item/Item-burger/Item-burger');
