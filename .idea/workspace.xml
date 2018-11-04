@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a558579b-72b4-482d-a7e7-40a9154522db" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/containers/Order/ClosingOrder/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/CheckingOrder/actionType.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/Order-checking/actionType.js" afterDir="false" />
@@ -10,17 +9,24 @@
       <change beforePath="$PROJECT_DIR$/src/containers/CheckingOrder/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/Order-checking/orders.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/CheckingOrder/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/Order-checking/page.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/CheckingOrder/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/Order-checking/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/CheckingOrder/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/ClosingOrder/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ClosingOrder/actionType.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/ClosingOrder/actionType.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ClosingOrder/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/ClosingOrder/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ClosingOrder/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/ClosingOrder/orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ClosingOrder/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/ClosingOrder/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ClosingOrder/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/ClosingOrder/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ClosingOrder/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/Order-checking/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/CheckingOrder/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/Order-checking/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ClosingOrder/actionType.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/Order-closing/actionType.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ClosingOrder/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/Order-closing/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ClosingOrder/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/Order-closing/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ClosingOrder/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/Order-closing/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ClosingOrder/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/Order-closing/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/ClosingOrder/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/Order-closing/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Login/Company/login-company.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Login/Login-company/login-company.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Login/Company/login-company.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Login/Login-company/login-company.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Login/Employee/login-employee.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Login/Login-employee/login-employee.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Login/Employee/login-employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Login/Login-employee/login-employee.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Order/Order.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/Order-show/Order-show.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Order/Order.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Order/Order-show/Order-show.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Register/Company/company-register.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Register/Register-company/company-register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Register/Company/company-register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Register/Register-company/company-register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Register/Employee/employee-register.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Register/Register-employee/employee-register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Register/Employee/employee-register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Register/Register-employee/employee-register.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,13 +47,13 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="1" />
-          <entry key="js" value="22" />
+          <entry key="js" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="1" />
-          <entry key="JavaScript" value="22" />
+          <entry key="JavaScript" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -63,29 +69,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/Order/Order-show/Order-show.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/containers/Order/Order-checking/page.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -159,7 +143,7 @@
               <item name="company-many" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="Order" type="462c0819:PsiDirectoryNode" />
+              <item name="Login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="company-many" type="b2602c69:ProjectViewProjectNode" />
@@ -167,7 +151,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
               <item name="Order" type="462c0819:PsiDirectoryNode" />
-              <item name="Order-checking" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="company-many" type="b2602c69:ProjectViewProjectNode" />
+              <item name="company-many" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="Register" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -215,16 +205,15 @@
       <workItem from="1541019302929" duration="170000" />
       <workItem from="1541333968146" duration="1679000" />
       <workItem from="1541336521924" duration="278000" />
-      <workItem from="1541338050723" duration="333000" />
+      <workItem from="1541338050723" duration="781000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2694000" />
+    <option name="totallyTimeSpent" value="3142000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26171243" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -331,13 +320,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Order/Order-show/Order-show.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/Order/Order-checking/page.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -345,6 +327,23 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Order/Order-closing/page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Order/Order-show/Order-show.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
         </state>
       </provider>
     </entry>
