@@ -15,6 +15,7 @@ const layout = (props) => (
       <NavLink to="/Home/All" className="btn first">All</NavLink>
       {
         props.allCategories.map( product => {
+          console.log('product name', product.name);
           return (
             <NavLink
               key={product.id}

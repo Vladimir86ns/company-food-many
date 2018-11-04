@@ -162,7 +162,7 @@ class CheckingOrder extends Component {
     // Initialize single order details
     let orderDetail = (<div></div>);
 
-    // Display order details if is clicked on button
+    // Item-show-single order details if is clicked on button
     if (this.state.orderDetail) {
       orderDetail = this.getOrderDetails();
     }

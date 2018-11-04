@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Aux from '../../../hoc/Aux';
-import ManyItem from '../../containers/Many-item/Many-item';
+import ItemDisplay from '../Item-show-single/Item-show-single';
 
-class ItemDrgink extends Component {
+class ItemDrink extends Component {
 
   render() {
     let allBurgerItems = (<div></div>);
@@ -13,7 +13,7 @@ class ItemDrgink extends Component {
 
       allBurgerItems = this.props.all.map(function(item) {
         if (item.product_category_id === category.id) {
-          return <ManyItem
+          return <ItemDisplay
             item={item}
             key={item.id}
             name={item.name}
@@ -45,4 +45,4 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ItemDrgink);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemDrink);

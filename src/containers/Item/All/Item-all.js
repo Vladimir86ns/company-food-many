@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Aux from '../../../hoc/Aux';
 import axios from '../../../axios';
-import ManyItem from '../Display/Display';
+import ManyItem from '../Item-show-single/Item-show-single';
 import * as actionTypes from '../../../store/items/actions';
 
 class ItemAll extends Component {
