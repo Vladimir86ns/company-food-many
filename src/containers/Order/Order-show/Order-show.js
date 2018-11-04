@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './Order.css';
-import axios from '../../axios';
-import Aux from '../../hoc/Aux';
-import * as actionTypes from '../../store/order/actions';
+import './Order-show.css';
+import axios from '../../../axios';
+import Aux from '../../../hoc/Aux';
+import * as actionTypes from '../../../store/order/actions';
 
 class Order extends Component {
 

@@ -4,8 +4,8 @@ import RegisterCompany from './containers/Register/Company/company-register';
 import LoginCompany from './containers/Login/Company/login-company';
 import RegisterEmployee from './containers/Register/Employee/employee-register';
 import LoginEmployee from './containers/Login/Employee/login-employee';
-import CheckingOrders from './containers/CheckingOrder/page';
-import ClosingOrder from './containers/ClosingOrder/page';
+import CheckingOrders from './containers/Order/Order-checking/page';
+import ClosingOrder from './containers/Order/Order-closing/page';
 
 import {  BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import './App.css';

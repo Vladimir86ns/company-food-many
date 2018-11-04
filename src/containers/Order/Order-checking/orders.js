@@ -1,5 +1,5 @@
 import * as actionType from './actionType';
-import axios from '../../axios';
+import axios from '../../../axios';
 
 export const getAllOrders = (companyId) => {
   return dispatch => {

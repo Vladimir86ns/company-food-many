@@ -7,8 +7,8 @@ import itemsReducer from './store/items/reducer';
 import categoriesReducer from './store/categories/reducer';
 import userReducer from './store/user/reducer';
 import orderReducer from './store/order/reducer';
-import checkingOrders from './containers/CheckingOrder/reducer';
-import closingOrders from './containers/ClosingOrder/reducer';
+import checkingOrders from './containers/Order/Order-checking/reducer';
+import closingOrders from './containers/Order/Order-closing/reducer';
 import thunk from 'redux-thunk'
 
 import { Provider } from 'react-redux';
