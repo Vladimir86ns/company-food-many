@@ -1,0 +1,7 @@
+/* Float cancel and signup buttons and add an equal width */
+.signupbtn {
+  float: left;
+  width: 50%;
+  margin-right: 10px;
+  background-color: blue;
+}

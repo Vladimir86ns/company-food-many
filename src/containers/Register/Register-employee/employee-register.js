@@ -81,8 +81,8 @@ class Register extends Component {
         <div className="container">
           <div className="clearfix">
             <h1>Company Login</h1>
-            <button type="submit" className="signupbtn" onClick={ () => redirectToPage(this.props, ROUTE.COMPANY_LOGIN)}>Login as a Company</button>
-            <button type="button" className="cancelbtn" onClick={ () => redirectToPage(this.props, ROUTE.COMPANY_REGISTER)}>Sign Up as a Company</button>
+            <button type="submit" className="signupbtn" onClick={ () => redirectToPage(this.props, ROUTE.LOGIN_COMPANY)}>Login as a Company</button>
+            <button type="button" className="cancelbtn" onClick={ () => redirectToPage(this.props, ROUTE.REGISTER_COMPANY)}>Sign Up as a Company</button>
           </div>
         </div>
       </Aux>

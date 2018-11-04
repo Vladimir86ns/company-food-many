@@ -85,8 +85,8 @@ class Register extends Component {
         <div className="container">
           <div className="clearfix">
             <h1>Employee Login</h1>
-            <button type="submit" className="signupbtn" onClick={ () => redirectToPage(this.props, ROUTE.EMPLOYEE_LOGIN)}>Login as a Employee</button>
-            <button type="button" className="cancelbtn" onClick={ () => redirectToPage(this.props, ROUTE.EMPLOYEE_REGISTER)}>Sign Up as a Employee</button>
+            <button type="submit" className="signupbtn" onClick={ () => redirectToPage(this.props, ROUTE.LOGIN_EMPLOYEE)}>Login as a Employee</button>
+            <button type="button" className="cancelbtn" onClick={ () => redirectToPage(this.props, ROUTE.REGISTER_EMPLOYEE)}>Sign Up as a Employee</button>
           </div>
         </div>
       </Aux>

@@ -13,6 +13,13 @@ export function getCompanyId() {
 }
 
 /**
+ * Return company id from local storage.
+ */
+export function getEmployeeId() {
+  return localStorage.getItem('employee_id');
+}
+
+/**
  * Return path for picture regarding to company ID.
  */
 export function getCompanyProductImagePath() {

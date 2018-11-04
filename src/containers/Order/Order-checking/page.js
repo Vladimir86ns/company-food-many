@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { checkUser, getCompanyId } from '../../../utils';
+import { checkUser, getCompanyId, redirectToPage, getEmployeeId } from '../../../utils';
+import { ROUTE } from './../../../constants'
 import * as actionTypes from './index';
 import './style.css';
 import Aux from '../../../hoc/Aux';
@@ -16,7 +17,10 @@ class CheckingOrder extends Component {
    * Fetch all orders
    */
   componentDidMount() {
-    checkUser();
+    if (!checkUser() && !getEmployeeId()) {
+      redirectToPage(this.props, ROUTE.LOGIN_EMPLOYEE);
+    }
+
     let companyId = getCompanyId();
     this.props.initOrders(companyId);
   }
@@ -186,6 +190,11 @@ class CheckingOrder extends Component {
       <Aux>
         {orderDetail}
         {listOrders}
+        <div className="container">
+          <div className="clearfix">
+            <button type="submit" className="signupbtn" onClick={ () => redirectToPage(this.props, ROUTE.ORDER_CHOOSE_TYPE)}>CHOOSE TYPE</button>
+          </div>
+        </div>
       </Aux>
     );
   }
