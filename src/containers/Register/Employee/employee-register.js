@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Aux from '../../hoc/Aux';
-import axios from '../../axios';
+import Aux from '../../../hoc/Aux';
+import axios from '../../../axios';
 import './employee-register.css';
-import { ROUTE } from '../../constants';
-import { redirectToPage } from '../../utils';
+import { ROUTE } from '../../../constants';
+import { redirectToPage } from '../../../utils';
 
 class Register extends Component {
   state = {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Home from './containers/Home/Home';
-import Register from './containers/Register/Register';
-import Login from './containers/Login/Login';
-import EmployeeRegister from './containers/Employee-Register/employee-register';
-import EmployeeLogin from './containers/Employee-Login/employee-login';
+import RegisterCompany from './containers/Register/Company/company-register';
+import LoginCompany from './containers/Login/Company/login-company';
+import RegisterEmployee from './containers/Register/Employee/employee-register';
+import LoginEmployee from './containers/Login/Employee/login-employee';
 import CheckingOrders from './containers/CheckingOrder/page';
 import ClosingOrder from './containers/ClosingOrder/page';
 
@@ -17,13 +17,13 @@ class App extends Component {
     <Router>
       <Switch>
         <Route path='/home' component={Home}/>
-        <Route path='/register' component={Register}/>
-        <Route path='/login' component={Login}/>
-        <Route path='/employee-register' component={EmployeeRegister}/>
-        <Route path='/employee-login' component={EmployeeLogin}/>
+        <Route path='/company-register' component={RegisterCompany}/>
+        <Route path='/company-login' component={LoginCompany}/>
+        <Route path='/employee-register' component={RegisterEmployee}/>
+        <Route path='/employee-login' component={LoginEmployee}/>
         <Route path='/checking-orders' component={CheckingOrders}/>
         <Route path='/closing-orders' component={ClosingOrder}/>
-        <Redirect from="/" to="login" />
+        <Redirect from="/" to="company-login" />
         <Route render={() => <h1>Not found</h1>}/>
       </Switch>
     </Router>

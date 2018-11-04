@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Aux from '../../hoc/Aux';
-import './employee-login.css';
-import axios from '../../axios';
-import {redirectToPage} from '../../utils';
-import { ROUTE } from './../../constants'
+import Aux from '../../../hoc/Aux';
+import './login-employee.css';
+import axios from '../../../axios';
+import { redirectToPage, checkUser } from '../../../utils';
+import { ROUTE } from './../../../constants'
 
 class Login extends Component {
 
@@ -15,15 +15,9 @@ class Login extends Component {
 
   componentDidMount()
   {
-    if (this.checkUser()) {
-      this.props.history.push("home")
+    if (checkUser()) {
+      redirectToPage(this.props, ROUTE.HOME);
     };
-  }
-
-  checkUser() {
-    let token = localStorage.getItem('jwt');
-
-    return token != null;
   }
 
   onSubmit(e) {
@@ -50,10 +44,6 @@ class Login extends Component {
     this.setState({[name]: value});
  }
 
-  onSignUp() {
-    this.props.history.push("register")
-  }
-
   render() {
     let errorMessage;
 
@@ -75,7 +65,7 @@ class Login extends Component {
 
             <div className="clearfix">
               <button type="submit" className="signupbtn">Login</button>
-              <button type="button" className="cancelbtn" onClick={() => this.onSignUp()}>Sign Up</button>
+              <button type="button" className="cancelbtn" onClick={() => redirectToPage(this.props, ROUTE.EMPLOYEE_REGISTER)}>Sign Up</button>
             </div>
           </div>
         </form>

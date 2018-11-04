@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Aux from '../../hoc/Aux';
-import axios from '../../axios';
-import './Register.css';
+import Aux from '../../../hoc/Aux';
+import axios from '../../../axios';
+import './company-register.css';
 
-import *  as actionTypes from '../../store/user/actions';
-import { ROUTE } from '../../constants';
-import { redirectToPage } from '../../utils';
+import *  as actionTypes from '../../../store/user/actions';
+import { ROUTE } from '../../../constants';
+import { redirectToPage } from '../../../utils';
 
 class Register extends Component {
   state = {
